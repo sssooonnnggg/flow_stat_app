@@ -1,0 +1,185 @@
+html {
+	height:100%;
+}
+
+body {
+  font-family: "Helvetica Neue", "Helvetica", "Microsoft Yahei", "Hiragino Sans GB", "WenQuanYi Micro Hei", "sans-serif";
+  height:100%;
+  background-color: #f0f3f8;
+}
+
+.my-nav-bar {
+    background: url('/images/navbar-top-bg.png') no-repeat;
+    background-size: 100% 100%;
+    min-height:60px;
+    border-radius:0px;
+    margin-bottom:0px;
+}
+
+.navbar-right {
+	margin-top:5px;
+}
+
+#navbar-title, .navbar-right li a {
+	color:#EFF3FD !important;
+}
+
+#title-icon {
+	margin-right:10px;
+}
+
+.title{
+	min-width:300px;
+}
+
+.dropdown-menu > li > a:hover{
+	background-color:#e7e7e7;
+}
+
+#video1, #video2, #video3{
+	min-height: 500px;
+	background-color: #e7e7e7;
+}
+
+.select-time{
+}
+
+.view-path{
+	padding-left:0px;
+}
+
+.search-param{
+	padding:5px;
+}
+
+#search-btn{
+	float:right;
+}
+
+.video-container{
+	border-bottom: 1px solid #cccccc;
+	margin-top:60px;
+}
+
+.video-kqi-param{
+	min-height:80px;
+	max-height:80px;
+	margin:5px;
+	margin-left:0px;
+	margin-bottom:15px;
+	padding:10px;
+	text-align:center;
+	cursor:pointer;
+	background-color:white;
+	border:1px solid #B0E0E6;
+	border-radius:5px;
+}
+
+.hide-div{
+	display:none;
+}
+
+.video-kqi-param:hover, .video-kqi-param-on{
+	border-color:#1E90FF;
+	background-color:rgb(204, 221, 255);
+}
+
+.network-tab{
+	padding:18px;
+}
+
+#detailContent {
+	margin-top : 60px;
+	padding : 0px;
+}
+
+#detailHeader{
+	margin-bottom:20px;
+}
+
+#apply-failed, #apply-success{
+	display:none;
+}
+
+#accordion, #content {
+	border-right:1px solid #3199dd;
+	height:100%;
+	padding:0px;
+}
+
+#sidebar {
+	margin-top: 60px;
+}
+
+.panel-group .panel-heading {
+	border : 1px solid #ddd;
+	border-right-width:0px;
+	border-left-width:0px;
+	border-radius:0px;
+	background-color: transparent;
+}
+
+.panel-heading .accordion-toggle:after {
+    /* symbol for "opening" panels */
+    font-family: 'Glyphicons Halflings';  /* essential for enabling glyphicon */
+    content: "\e114";    /* adjust as needed, taken from bootstrap.css */
+    float: right;        /* adjust as needed */
+    color: color: #5086bf;
+}
+
+.panel-heading .accordion-toggle.collapsed:after {
+    /* symbol for "collapsed" panels */
+    content: "\e080";    /* adjust as needed, taken from bootstrap.css */
+    color: #5086bf;
+}
+
+.panel {
+	background-color : transparent;
+}
+
+.panel-heading > .panel-title > a {
+	display: block;
+    clear: both;
+    color: #5086bf;
+    white-space: nowrap;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.list-group > .list-group-item {
+	background-color: transparent;
+	border: none;
+	margin:0px;
+	padding: 0px;
+}
+
+.list-group > .list-group-item > a {
+	text-decoration: none;
+	color:#666666;
+	font-size:13px;
+	display: block;
+	padding:10px;
+	padding-left:52px;
+	background-color:transparent;
+}
+
+.list-group > .list-group-item > a:hover {
+	text-decoration: none;
+	color:#5086bf;
+	background-color:transparent;
+}
+
+.list-group > li.active > a, .list-group > li.active > a:hover{
+    background-color: #4cc3a5;
+    color: #ffffff;
+}
+
+.side-icon {
+	margin-right:20px;
+}
+
+.list-group {
+	border-top-width:0px;
+	border-right: 6px solid #4cc3a5;
+}

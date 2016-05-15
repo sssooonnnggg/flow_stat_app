@@ -1,0 +1,46 @@
+nav.navbar.navbar-default.my-nav-bar.navbar-fixed-top
+  .container-fluid
+    .navbar-header
+      button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#my-navbar-collapse', aria-expanded='false')
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      a.navbar-brand#navbar-title
+        span.glyphicon.glyphicon-stats(aria-hidden='true')#title-icon
+        | 网站及视频流媒体质量分析与提速管理系统
+    #my-navbar-collapse.collapse.navbar-collapse
+      ul.nav.navbar-nav.navbar-right
+        li
+          a #{username}(#{role})
+        li
+          a(href='/logout') 注销
+.container-fluid#content
+  .col-md-2#accordion
+    .panel-group#sidebar(role='tablist', aria-multiselectable='true')
+      .panel.panel-default
+        .panel-heading#menu1(role='tab')
+          h4.panel-title
+            a.accordion-toggle(role='button', data-toggle='collapse', data-parent='#sidebar', href='#menulist1', aria-expanded='true', aria-controls='menulist1')
+              span.glyphicon.glyphicon-th-list.side-icon
+              |  网络质量分析与提速
+        #menulist1.panel-collapse.collapse.in(role='tabpanel', aria-labelledby='#menu1')
+          ul.list-group
+            li.list-group-item.active 
+              a(href='#') 视频流媒体质量分析与提速
+            li.list-group-item 
+              a(href='#') 页面质量分析与提速
+        .panel-heading#menu2(role='tab')
+          h4.panel-title
+            a.accordion-toggle(role='button', data-toggle='collapse', data-parent='#sidebar', href='#menulist2', aria-expanded='false', aria-controls='menulist1')
+              span.glyphicon.glyphicon-user.side-icon
+              |  系统管理
+        #menulist2.panel-collapse.collapse(role='tabpanel', aria-labelledby='#menu2')
+          ul.list-group
+            li.list-group-item 
+              a(href='#') 用户管理
+  .col-md-10#detailContent 
+    ol.breadcrumb.view-path
+      li
+        a(href='#') !{path1}
+      li.active !{path2}

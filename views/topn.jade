@@ -1,0 +1,31 @@
+doctype html
+html(lang='zh-CN')
+  include header.jade
+  body
+    include navbar.jade
+    .container
+      include search.jade
+      .video-container
+        .container
+          h5
+            strong 网络TOP N网站
+          .row
+        #video2
+      .container#detailContainer
+        .container#detailHeader
+          h5
+            strong 详细信息
+        table.table#detail
+          thead
+            tr
+              th(data-field='序号') 序号
+              th(data-field='分析对象') 分析对象
+              th(data-field='流量类型') 流量类型
+              th(data-field='双向流量') 双向流量
+              th(data-field='双向带宽') 双向带宽
+              th(data-field='峰值时刻') 峰值时刻
+              th(data-field='峰值带宽') 峰值带宽
+              th(data-field='谷值时刻') 谷值时刻
+              th(data-field='谷值带宽') 谷值带宽
+    include footer.jade
+    script(src='js/topn.js')

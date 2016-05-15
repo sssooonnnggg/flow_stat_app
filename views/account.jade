@@ -1,0 +1,111 @@
+doctype html
+html(lang='zh-CN')
+  include header.jade
+  body
+    include navbar.jade
+    .container
+      .alert.alert-danger#apply-failed(role='alert')
+        | 更新用户数据失败
+      .alert.alert-success#apply-success(role='alert')
+        | 更新用户数据成功
+      #toolbar.btn-group
+        button.btn.btn-default#btn-add(type='button')
+          span.glyphicon.glyphicon-plus 
+          |  添加
+        button.btn.btn-default#btn-remove(type='button')
+          span.glyphicon.glyphicon-trash
+          |  删除
+        button.btn.btn-default#btn-modify(type='button')
+          span.glyphicon.glyphicon-pencil
+          |  修改
+        button.btn.btn-default#btn-apply(type='button')
+          span.glyphicon.glyphicon-ok
+          |  应用
+      table#table(data-toggle='table', data-toolbar="#toolbar", data-click-to-select='true', data-search="true", data-show-columns="true")
+        thead
+          tr
+            th(data-filed='state', data-checkbox='true')
+            th(data-field='username') 用户名
+            th(data-field='password') 密码
+            th(data-field='role', data-cell-style="roleCellStyle") 权限
+            th(data-field='status', data-cell-style="statusCellStyle") 用户状态
+        tbody
+          each user in users
+            tr
+              td
+              td #{user['username']}
+              td #{user['password']}
+              - var roleDict = {'admin':'管理员', 'user':'普通用户'}
+              td #{roleDict[user['role']]}
+              - var statusDict = {'0':'禁用', '1':'启用'}
+              td #{statusDict[user['status']]}
+      #addModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='addModalLabel')
+        .modal-dialog(role='document')
+          .modal-content
+            .modal-header
+              button.close(type='button', data-dismiss='modal', aria-label='Close')
+                span(aria-hidden='true') ×
+              h4#addModalLabel.modal-title 添加用户
+            .modal-body
+              .alert.alert-danger#modal-failed(role='alert')
+                |用户名和密码不能为空
+              form.form-horizontal
+                .form-group
+                  label.col-sm-2.control-label(for='input-username') 用户名
+                  .col-sm-10
+                    input#input-username.form-control(type='text', placeholder='用户名')
+                .form-group
+                  label.col-sm-2.control-label(for='input-password') 密码
+                  .col-sm-10
+                    input#input-password.form-control(type='password', placeholder='密码')
+                .form-group
+                  label.col-sm-2.control-label(for='input-role') 权限
+                  .col-sm-10
+                      select.form-control#input-role
+                        option 管理员
+                        option 普通用户
+                .form-group
+                  label.col-sm-2.control-label(for='input-status') 用户状态
+                  .col-sm-10
+                      select.form-control#input-status
+                        option 禁用
+                        option 启用
+            .modal-footer
+              button.btn.btn-default(type='button', data-dismiss='modal') 取消
+              button.btn.btn-primary#btn-add-ok(type='button') 确定
+      #modifyModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='modifyModalLabel')
+        .modal-dialog(role='document')
+          .modal-content
+            .modal-header
+              button.close(type='button', data-dismiss='modal', aria-label='Close')
+                span(aria-hidden='true') ×
+              h4#modifyModal.modal-title 修改用户信息
+            .modal-body
+              .alert.alert-danger#modal-failed2(role='alert')
+                |用户名和密码不能为空
+              form.form-horizontal
+                .form-group
+                  label.col-sm-2.control-label(for='input-username') 用户名
+                  .col-sm-10
+                    input#input-username2.form-control(type='text', placeholder='用户名')
+                .form-group
+                  label.col-sm-2.control-label(for='input-password') 密码
+                  .col-sm-10
+                    input#input-password2.form-control(type='password', placeholder='密码')
+                .form-group
+                  label.col-sm-2.control-label(for='input-role') 权限
+                  .col-sm-10
+                      select.form-control#input-role2
+                        option 管理员
+                        option 普通用户
+                .form-group
+                  label.col-sm-2.control-label(for='input-status') 用户状态
+                  .col-sm-10
+                      select.form-control#input-status2
+                        option 禁用
+                        option 启用
+            .modal-footer
+              button.btn.btn-default(type='button', data-dismiss='modal') 取消
+              button.btn.btn-primary#btn-modify-ok(type='button') 确定
+      include footer.jade
+      script(src='js/account.js')

@@ -1,0 +1,49 @@
+  <!DOCTYPE html>  
+  <html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">  
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">  
+    <meta name="viewport" content="width=device-width, initial-scale=1">  
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->  
+    <title>DRP 报表平台</title>
+
+    <!-- Bootstrap -->  
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">  
+    <link href="stylesheets/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">  
+    <link href="stylesheets/login.css" rel="stylesheet">  
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->  
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->  
+    <!--[if lt IE 9]>  
+    <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]--> </head>
+  <body>
+    <div class="theme" id="particles-js">
+      <div class="container">
+        <div class="alert alert-danger alert-dismissible login-failed" role="alert">
+          <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <span class="sr-only"></span>
+          错误的用户名或密码
+        </div>
+        <div class="account-wall">
+          <div class="face">
+            <span class="glyphicon glyphicon-user"></span>
+          </div>
+          <h3 class="text-center login-title">DRP报表平台</h3>
+          <form class="form-signin" action="" method="post">
+            <input type="text" name="user" class="form-control" id="username" placeholder="用户名" required autofocus>  
+            <input type="password" name="password" class="form-control" id="password" placeholder="密码" required></form>
+          <button class="btn btn-lg btn-primary">登录</button>
+        </div>
+      </div>
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->  
+    <script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->  
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/particles.min.js"></script>
+    <script src="js/login.js"></script>
+  </body>
+  </html>

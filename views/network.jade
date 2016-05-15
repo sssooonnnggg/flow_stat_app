@@ -1,0 +1,32 @@
+doctype html
+html(lang='zh-CN')
+  include header.jade
+  body
+    include navbar.jade
+    .container
+      include search.jade
+      .video-container
+        .container
+          h5
+            strong 网页KQI&趋势
+          .row
+            .col-md-2
+              #kqi-1.video-kqi-param.video-kqi-param-on.network-tab.hide-div
+                p
+                  | 页面响应成功率(%)
+                  br
+                  strong 88.5%
+            .col-md-2
+              #kqi-2.video-kqi-param.network-tab.hide-div
+                p
+                  | 页面响应延时(ms)
+                  br
+                  strong 331ms
+            .col-md-2
+              #kqi-3.video-kqi-param.network-tab.hide-div
+                p
+                  | 页面下载速率
+                  strong 187.08kbps
+        #video2
+    include footer.jade
+    script(src='js/network.js')
