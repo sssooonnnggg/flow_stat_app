@@ -1,0 +1,26 @@
+nav.navbar.navbar-default#search-bar
+  .container-fluid#search-container
+    .navbar-header
+      a.navbar-brand#search-label 
+        span.glyphicon.glyphicon-search#search-icon
+        |  筛选条件
+    .collapse.navbar-collapse
+      ul.nav.navbar-nav.navbar-right
+        li
+          a#search-btn 查询
+      .nav.navbar-nav.navbar-right.navbar-form
+        .input-group
+          span.input-group-addon.search-param-label
+            | 时间粒度
+          select.form-control.select-time
+            option.text-right 小时粒度
+            option 天粒度
+            option 月粒度
+        .input-group.date
+          span.input-group-addon.search-param-label
+            | 开始日期
+          input.form-control#datetimepicker1.date-input(type='text')
+        .input-group.date
+          span.input-group-addon.search-param-label
+            | 结束日期
+          input.form-control#datetimepicker2.date-input(type='text')

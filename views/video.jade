@@ -1,27 +1,31 @@
 doctype html
 html(lang='zh-CN')
-  include header.jade
+  head
+    include header.jade
+    link(href='stylesheets/bootstrap-datetimepicker.min.css', rel='stylesheet', media='screen')
+    link(href='http://cdn.bootcss.com/bootstrap-table/1.10.1/bootstrap-table.min.css', rel='stylesheet')
+    link(href='stylesheets/searchbar.css', rel='stylesheet')
   body
-    include navbar.jade
+    .container-fluid#current-path
+      h4 网络质量分析与提速 - 视频流媒体
+    include searchbar.jade
+    .video-container
       .container
-        include search.jade
-        .video-container
-          .container
-            h5
-              strong 视频KQI&趋势
-            .row
-              .col-md-2
-                #kqi-1.video-kqi-param.video-kqi-param-on.hide-div
-                  p
-                    | 视频流媒体初始播放成功率(%)
-                    br
-                    strong 92.85%
-              .col-md-2
-                #kqi-2.video-kqi-param.hide-div
-                  p
-                    | 视频流媒体下载速率(kbps)
-                    br
-                    strong 2314.79
-          #video2
+        h5
+          strong 视频KQI&趋势
+        .row
+          .col-md-2
+            #kqi-1.video-kqi-param.video-kqi-param-on.hide-div
+              p
+                | 视频流媒体初始播放成功率(%)
+                br
+                strong 92.85%
+          .col-md-2
+            #kqi-2.video-kqi-param.hide-div
+              p
+                | 视频流媒体下载速率(kbps)
+                br
+                strong 2314.79
+      #video2
     include footer.jade
     script(src='js/video.js')
