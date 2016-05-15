@@ -19,9 +19,13 @@ html(lang='zh-CN')
         #my-navbar-collapse.collapse.navbar-collapse
           ul.nav.navbar-nav.navbar-right
             li
-              a #{username}(#{role})
+              a 
+                span.glyphicon.glyphicon-user    
+                |  #{username}(#{role})
             li
-              a(href='/logout') 注销
+              a(href='/logout')
+                  span.glyphicon.glyphicon-log-out 
+                  |   注销
     .container-fluid#content
       .col-md-2#accordion
         .panel-group#sidebar(role='tablist', aria-multiselectable='true')

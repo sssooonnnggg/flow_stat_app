@@ -1,0 +1,650 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"bor",
+				"border-color"
+			],
+			[
+				"backgr",
+				"background-color"
+			],
+			[
+				"bac",
+				"background-image"
+			],
+			[
+				"userna",
+				"usernameExist"
+			],
+			[
+				"length",
+				"buf.length"
+			],
+			[
+				"th",
+				"this	$(this)"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"show",
+				"showLoading"
+			],
+			[
+				"form",
+				"formatter"
+			],
+			[
+				"axi",
+				"axisLabel"
+			],
+			[
+				"y",
+				"yAxis"
+			],
+			[
+				"ra",
+				"randomAxis"
+			],
+			[
+				"inline",
+				"inline-block"
+			],
+			[
+				"background-c",
+				"background-color"
+			],
+			[
+				"font",
+				"font-style"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "index.jade",
+			"settings":
+			{
+				"buffer_size": 2461,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "video.jade",
+			"settings":
+			{
+				"buffer_size": 1044,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "searchbar.jade",
+			"settings":
+			{
+				"buffer_size": 965,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/F/Projects/Node/myapp/public/stylesheets/mainframe.css",
+			"settings":
+			{
+				"buffer_size": 2746,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/F/Projects/Node/myapp/public/stylesheets/login.css",
+			"settings":
+			{
+				"buffer_size": 3401,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/F/Projects/Node/myapp/public/stylesheets/searchbar.css",
+			"settings":
+			{
+				"buffer_size": 2289,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/F/Projects/Node/myapp/public/stylesheets/video.css",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "header.jade",
+			"settings":
+			{
+				"buffer_size": 287,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 104.0,
+		"last_filter": "Package Control: insta",
+		"selected_items":
+		[
+			[
+				"Package Control: insta",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ins",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: in",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: TAG",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 424.0
+	},
+	"console":
+	{
+		"height": 153.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/F/Projects/Node/myapp",
+		"/F/Projects/Node/myapp/public",
+		"/F/Projects/Node/myapp/public/images",
+		"/F/Projects/Node/myapp/public/js",
+		"/F/Projects/Node/myapp/public/stylesheets",
+		"/F/Projects/Node/myapp/views"
+	],
+	"file_history":
+	[
+		"/F/Projects/Node/myapp/public/stylesheets/searchbar.css",
+		"/F/Projects/Node/myapp/public/stylesheets/style.css",
+		"/C/Users/PC/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/F/Projects/Node/myapp/views/myapp.sublime-project",
+		"/F/Projects/Node/myapp/views/navbar.jade",
+		"/F/Projects/Node/myapp/public/js/sidebar.js",
+		"/F/Projects/Node/myapp/public/js/login.js",
+		"/F/Projects/Node/myapp/views/login.jade",
+		"/F/Projects/Node/myapp/views/video.jade",
+		"/F/Projects/Node/myapp/views/index.jade",
+		"/F/Projects/Node/myapp/app.js",
+		"/C/Users/PC/AppData/Local/GitHub/PortableGit_c2ba306e536fdf878271f7fe636a147ff37326ad/bin/vi",
+		"/F/Projects/Node/myapp/views/footer.jade",
+		"/F/Projects/Node/myapp/public/js/video.js",
+		"/F/Projects/Node/myapp/public/js/account.js",
+		"/F/Projects/Node/myapp/views/search.jade",
+		"/F/Projects/Node/myapp/public/js/topn.js",
+		"/F/Projects/Node/myapp/package.json",
+		"/F/Projects/Node/myapp/public/stylesheets/login.css",
+		"/F/Projects/Node/myapp/auth.js",
+		"/F/Projects/Node/myapp/views/header.jade",
+		"/F/Projects/Node/test/react-router-tutorial/lessons/10-clean-urls/index.html",
+		"/F/Projects/Node/test/react-router-tutorial/lessons/10-clean-urls/index.js",
+		"/F/Projects/Node/test/react-router-tutorial/lessons/09-index-links/README.md",
+		"/F/Projects/Node/test/react-router-tutorial/lessons/04-nested-routes/README.md",
+		"/F/Projects/Node/test/react-router-tutorial/lessons/11-productionish-server/README.md",
+		"/F/Projects/Node/test/demo/react-demos/demo01/index.html",
+		"/F/Projects/Node/test/demo/react-demos/demo13/README.md",
+		"/F/Projects/Node/test/demo/react-demos/demo13/server.js",
+		"/F/Projects/Node/test/react-router-tutorial/lessons/03-navigating-with-link/index.js",
+		"/F/Projects/Node/test/react-router-tutorial/lessons/10-clean-urls/modules/About.js",
+		"/F/Projects/Node/test/react-multi-step-form/src/javascript/app.jsx",
+		"/F/Projects/Node/test/react-multi-step-form/src/sass/app.scss",
+		"/F/Projects/Node/test/react-router-tutorial/lessons/01-setting-up/index.js",
+		"/F/Projects/Node/test/react-router-tutorial/lessons/02-rendering-a-route/index.js",
+		"/F/Projects/Node/test/react-router-tutorial/lessons/02-rendering-a-route/modules/App.js",
+		"/F/Projects/Node/test/react-router-tutorial/lessons/03-navigating-with-link/modules/About.js",
+		"/F/Projects/Node/test/react-router-tutorial/lessons/01-setting-up/modules/App.js",
+		"/F/Projects/Node/test/react-router-tutorial/lessons/01-setting-up/index.html",
+		"/F/Projects/Node/test/react-router-tutorial/lessons/01-setting-up/webpack.config.js",
+		"/C/Users/PC/Desktop/长微博 预览 - 马尔代夫+斯里兰卡.2016.5.3—2016.5.9.html",
+		"/F/myapp/views/header.jade",
+		"/F/myapp/public/stylesheets/style.css",
+		"/F/myapp/public/js/topn.js",
+		"/F/myapp/node_modules/express/lib/response.js",
+		"/F/myapp/node_modules/express/lib/express.js",
+		"/F/myapp/node_modules/base64-url/index.js",
+		"/F/myapp/views/footer.jade",
+		"/F/myapp/views/account.jade",
+		"/F/myapp/views/video.jade",
+		"/F/myapp/views/network.jade",
+		"/F/myapp/views/topn.jade",
+		"/F/myapp/app.js",
+		"/F/myapp/views/navbar.jade",
+		"/F/myapp/public/js/network.js",
+		"/F/myapp/views/search.jade",
+		"/F/myapp/public/js/video.js",
+		"/F/myapp/public/js/account.js",
+		"/F/myapp/public/js/login.js",
+		"/F/myapp/public/login.html",
+		"/F/myapp/auth.js",
+		"/F/myapp/views/login.jade",
+		"/F/myapp/views/userdata-form.jade",
+		"/F/myapp/public/stylesheets/bootstrap-table.min.css",
+		"/F/myapp/public/js/bootstrap-table.min.js",
+		"/C/Users/PC/Desktop/bootstrap-table-examples-master/bootstrap-table-examples-master/index.html",
+		"/C/Users/PC/Desktop/bootstrap-table-examples-master/bootstrap-table-examples-master/extensions/export.html",
+		"/F/myapp/myapp.sublime-project",
+		"/F/myapp/public/network.html",
+		"/F/myapp/public/top-n.html",
+		"/F/myapp/public/stylesheets/login.css",
+		"/F/myapp/public/video.html",
+		"/C/Users/PC/Desktop/particles.min.js",
+		"/F/myapp/public/js/main.js",
+		"/F/myapp/routes/index.js",
+		"/F/myapp/routes/users.js",
+		"/F/myapp/public/index.html",
+		"/C/Users/PC/Desktop/bootstrap-datetimepicker-master/bootstrap-datetimepicker-master/sample in bootstrap v3/index.html",
+		"/C/Users/PC/Desktop/bootstrap-datetimepicker-master/bootstrap-datetimepicker-master/111/index.html",
+		"/C/Users/PC/AppData/Local/Temp/Rar$EXa0.322/bootstrap-datetimepicker-master/sample in bootstrap v3/index.html",
+		"/C/Users/PC/Desktop/drp-web/DRP-WEB_files/ext-locale-zh_CN.js",
+		"/C/Users/PC/Desktop/drp-web/DRP-WEB_files/ext-all.js",
+		"/C/Users/PC/Desktop/drp-web/DRP-WEB_files/echarts.js",
+		"/C/Users/PC/AppData/Roaming/Sublime Text 3/Packages/Default/Preferences.sublime-settings"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"label",
+			"date-input",
+			"search-btn",
+			".title",
+			"search",
+			"search-btn",
+			"accordion",
+			"detailContainer",
+			"buttom",
+			"https",
+			"detailHeader",
+			"detailContainer",
+			"getIdSelections",
+			".css",
+			"initTable",
+			"='#')",
+			"block",
+			"form-group",
+			"html",
+			".css"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "index.jade",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2461,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								931,
+								931
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Jade/Syntaxes/Jade.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "video.jade",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1044,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								990,
+								532
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Jade/Syntaxes/Jade.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "searchbar.jade",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 965,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								266,
+								266
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Jade/Syntaxes/Jade.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/F/Projects/Node/myapp/public/stylesheets/mainframe.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2746,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2473,
+								2473
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 867.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/F/Projects/Node/myapp/public/stylesheets/login.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3401,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/F/Projects/Node/myapp/public/stylesheets/searchbar.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2289,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1260,
+								1260
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 499.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "/F/Projects/Node/myapp/public/stylesheets/video.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "header.jade",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 287,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								287,
+								287
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Jade/Syntaxes/Jade.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 27.0
+	},
+	"input":
+	{
+		"height": 35.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "myapp.sublime-project",
+	"replace":
+	{
+		"height": 50.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 286.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
