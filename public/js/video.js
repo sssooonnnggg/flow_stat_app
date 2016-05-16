@@ -1,8 +1,6 @@
 
 // 基于准备好的dom，初始化echarts实例
-//var mosChart = echarts.init(document.getElementById('video1'));
-//var mainMosChart = echarts.init(document.getElementById('video3'));
-var curKqiChart = echarts.init(document.getElementById('video2'));
+var curKqiChart = echarts.init(document.getElementById('video-container'));
 var kqiCharts = {};
 
 var date = [];
@@ -16,24 +14,27 @@ var option = {
         trigger: 'axis'
     },
     toolbox: {
-        show: true,
+        show: false,
         feature: {
             dataZoom: {},
             restore: {},
             saveAsImage: {}
         }
     },
-    legend: {
-        data:['视频MOS值']
-    },
+    /*legend: {
+        data:['视频MOS值'],
+        y:'bottom',
+        x:'left',
+        padding:[50, 50, 50, 20],
+    },*/
     xAxis:  {
         type: 'category',
         boundaryGap: false,
         data : date
     },
     grid:   {
-        x : 55,
-        y : 50,
+        x : 70,
+        y : 20,
         x2 : 50,
         y2 : 50
     },
@@ -134,21 +135,12 @@ $(function(){
 
 
 
-$('#btn-search').click(function(){
-
-    $('.video-kqi-param').show();
-
-    // 使用刚指定的配置项和数据显示图表。
-    //randomAxis(date, data);
-    //mosChart.setOption(option);
-
-    //randomAxis(date, data);
-    //mainMosChart.setOption(option);
+$('#search-btn').click(function(){
 
     var constFormatter = ["{value} %", "{value} kbps"]
 
     for (var i = 1; i < 3; i++) {
-        var chartId = "kqi-" + i;
+        var chartId = "video-tab-" + i;
         kqiCharts[chartId] = {
             date:[],
             data:[],
@@ -158,17 +150,19 @@ $('#btn-search').click(function(){
         kqiCharts[chartId].formatter = constFormatter[i - 1];
     }
 
-    var divId = $('.video-kqi-param-on').attr("id");
+    var divId = $('.video-tab-btn,  .active').attr("id");
     option.xAxis.data = kqiCharts[divId].date;
     option.series[0].data = kqiCharts[divId].data;
     option.yAxis.axisLabel.formatter = kqiCharts[divId].formatter;
     curKqiChart.setOption(option);
 })
 
-$('.video-kqi-param').click(function(){
-    $('.video-kqi-param-on').removeClass('video-kqi-param-on');
-    $(this).addClass('video-kqi-param-on');
-
+$('.video-tab-btn, .inactive').click(function(){
+    var otherTabs = $('.video-tab-btn, .active');
+    otherTabs.removeClass('active');
+    otherTabs.addClass('inactive');
+    $(this).removeClass('inactive');
+    $(this).addClass('active');
     var divId = $(this).attr("id");
     option.xAxis.data = kqiCharts[divId].date;
     option.series[0].data = kqiCharts[divId].data;

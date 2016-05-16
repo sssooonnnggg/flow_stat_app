@@ -12,22 +12,10 @@ html(lang='zh-CN')
     include searchbar.jade
     .container-fluid#videoContainer
       .thumbnail
-        .container
-          h5
-            strong 视频KQI&趋势
-          .row
-            .col-md-2
-              #kqi-1.video-kqi-param.video-kqi-param-on.hide-div
-                p
-                  | 视频流媒体初始播放成功率(%)
-                  br
-                  strong 92.85%
-            .col-md-2
-              #kqi-2.video-kqi-param.hide-div
-                p
-                  | 视频流媒体下载速率(kbps)
-                  br
-                  strong 2314.79
-        #video2
+        div#video-tab-bar
+          ul
+            li.video-tab-btn.active#video-tab-1 视频流媒体初始播放成功率
+            li.video-tab-btn.inactive#video-tab-2 视频流媒体下载速率
+        #video-container
     include footer.jade
     script(src='js/video.js')

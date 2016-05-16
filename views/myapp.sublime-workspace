@@ -178,15 +178,6 @@
 		"side_bar_visible": false,
 		"status_bar_visible": false
 	},
-	"expanded_folders":
-	[
-		"/F/Projects/Node/myapp",
-		"/F/Projects/Node/myapp/public",
-		"/F/Projects/Node/myapp/public/images",
-		"/F/Projects/Node/myapp/public/js",
-		"/F/Projects/Node/myapp/public/stylesheets",
-		"/F/Projects/Node/myapp/views"
-	],
 	"file_history":
 	[
 		"/F/Projects/Node/myapp/public/stylesheets/searchbar.css",
