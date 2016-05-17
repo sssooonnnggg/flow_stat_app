@@ -4,18 +4,26 @@ html(lang='zh-CN')
     include header.jade
     link(href='stylesheets/bootstrap-datetimepicker.min.css', rel='stylesheet', media='screen')
     link(href='http://cdn.bootcss.com/bootstrap-table/1.10.1/bootstrap-table.min.css', rel='stylesheet')
+    link(href='stylesheets/common.css', rel='stylesheet')
     link(href='stylesheets/searchbar.css', rel='stylesheet')
     link(href='stylesheets/video.css', rel='stylesheet')
   body
     .container-fluid#current-path
-      h4 网络质量分析与提速 - 视频流媒体
+      h4 视频流媒体初始播放成功率
     include searchbar.jade
-    .container-fluid#videoContainer
-      .thumbnail
-        div#video-tab-bar
+    .container-fluid
+      .frame
+        .tab-bar
           ul
-            li.video-tab-btn.active#video-tab-1 视频流媒体初始播放成功率
-            li.video-tab-btn.inactive#video-tab-2 视频流媒体下载速率
+            li.tab-btn.active#video-tab-1 视频流媒体初始播放成功率
+            li.tab-btn.inactive#video-tab-2 视频流媒体初始缓冲延时
+            li.tab-btn.inactive#video-tab-3 视频流媒体播放停顿率
+            li.tab-btn.inactive#video-tab-4 视频流媒体停顿频次
+            li.tab-btn.inactive#video-tab-5 视频流媒体停顿占比
+            li.tab-btn.inactive#video-tab-6 视频流媒体下载速度
+        #gauge-container
         #video-container
+        .clear-item
     include footer.jade
+    script(src='js/common.js')
     script(src='js/video.js')

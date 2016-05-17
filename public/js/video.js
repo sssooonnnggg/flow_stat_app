@@ -1,6 +1,7 @@
 
 // 基于准备好的dom，初始化echarts实例
 var curKqiChart = echarts.init(document.getElementById('video-container'));
+var gaugeChart = echarts.init(document.getElementById('gauge-container'));
 var kqiCharts = {};
 
 var date = [];
@@ -54,43 +55,6 @@ var option = {
     ]
 };
 
-var defaultOption = {
-    format:'yyyy-mm-dd hh:ii',
-    minView:'day',
-    language:  'zh-CN',
-    autoclose: 1,
-    format: 'yyyy-mm-dd hh:ii',
-    minView: 'day',
-};
-
-var formatMap = {
-    '小时' : {
-        format:'yyyy-mm-dd hh:ii',
-        minView:'day',
-        language:  'zh-CN',
-        autoclose: 1,
-        format: 'yyyy-mm-dd hh:ii',
-        minView: 'day',
-    },
-    '天' : {
-        format:'yyyy-mm-dd',
-        minView:'month',
-        language:  'zh-CN',
-        autoclose: 1,
-        format: 'yyyy-mm-dd',
-        minView: 'month',
-    },
-    '月' : {
-        format:'yyyy-mm',
-        minView:'year',
-        language:  'zh-CN',
-        autoclose: 1,
-        format: 'yyyy-mm',
-        minView: 'year',
-        startView: 'year',
-    },
-}
-
 var date1 = new Date();
 var date2 = new Date();
 
@@ -106,37 +70,7 @@ function randomAxis(date, data)
     }
 }
 
-$(function(){
-
-    $('#datetimepicker1').datetimepicker(defaultOption);
-    $('#datetimepicker2').datetimepicker(defaultOption);
-
-    $('.select-time').change(function() {
-        var checkValue=$(".select-time").val();
-        $('#datetimepicker1').datetimepicker('remove');
-        $('#datetimepicker2').datetimepicker('remove');
-        $('#datetimepicker1').datetimepicker(formatMap[checkValue]);
-        $('#datetimepicker2').datetimepicker(formatMap[checkValue]);
-        $('#datetimepicker1').datetimepicker('update', date1);
-        $('#datetimepicker2').datetimepicker('update', date2);
-    });
-
-    $('#datetimepicker1').datetimepicker().on('changeDate', function(ev){
-        date1 = ev.date;
-    });
-
-
-    $('#datetimepicker2').datetimepicker().on('changeDate', function(ev){
-        date2 = ev.date;
-    });
-
-});
-
-
-
-
-$('#search-btn').click(function(){
-
+function fakeVideoData() {
     var constFormatter = ["{value} %", "{value} kbps"]
 
     for (var i = 1; i < 3; i++) {
@@ -155,18 +89,74 @@ $('#search-btn').click(function(){
     option.series[0].data = kqiCharts[divId].data;
     option.yAxis.axisLabel.formatter = kqiCharts[divId].formatter;
     curKqiChart.setOption(option);
-})
 
-$('.video-tab-btn, .inactive').click(function(){
-    var otherTabs = $('.video-tab-btn, .active');
-    otherTabs.removeClass('active');
-    otherTabs.addClass('inactive');
-    $(this).removeClass('inactive');
-    $(this).addClass('active');
-    var divId = $(this).attr("id");
-    option.xAxis.data = kqiCharts[divId].date;
-    option.series[0].data = kqiCharts[divId].data;
-    option.yAxis.axisLabel.formatter = kqiCharts[divId].formatter;
-    curKqiChart.setOption(option);
-})
+    gaugeChart.setOption(gaugeOption);
+}
+
+$(function(){
+
+    initDateTimePicker();
+
+    gaugeOption = {
+        tooltip : {
+            formatter: "{a} <br/>{b} : {c}%"
+        },
+        toolbox: {
+            feature: {
+                restore: {},
+                saveAsImage: {}
+            }
+        },
+        series: [
+            {
+                name: '业务指标',
+                type: 'gauge',
+                detail: {formatter:'{value}%'},
+                data: [{value: 92.85, name: '视频流媒体初始播放成功率'}],
+                axisLine: {            // 坐标轴线
+                    lineStyle: {       // 属性lineStyle控制线条样式
+                        width: 10
+                    }
+                },
+                axisTick: {            // 坐标轴小标记
+                    length: 15,        // 属性length控制线长
+                    lineStyle: {       // 属性lineStyle控制线条样式
+                        color: 'auto'
+                    }
+                },
+                splitLine: {           // 分隔线
+                    length: 20,         // 属性length控制线长
+                    lineStyle: {       // 属性lineStyle（详见lineStyle）控制线条样式
+                        color: 'auto'
+                    }
+                },
+            }
+        ]
+    };
+
+    fakeVideoData();
+
+    $('#search-btn').click(function(){
+        fakeVideoData();
+    })
+
+    $('.tab-btn, .inactive').click(function(){
+        var otherTabs = $('.tab-btn, .active');
+        otherTabs.removeClass('active');
+        otherTabs.addClass('inactive');
+        $(this).removeClass('inactive');
+        $(this).addClass('active');
+        var divId = $(this).attr("id");
+        option.xAxis.data = kqiCharts[divId].date;
+        option.series[0].data = kqiCharts[divId].data;
+        option.yAxis.axisLabel.formatter = kqiCharts[divId].formatter;
+        curKqiChart.setOption(option);
+    })
+
+});
+
+
+
+
+
 

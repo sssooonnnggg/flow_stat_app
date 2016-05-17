@@ -91,6 +91,12 @@ app.get('/index', restrict, function(req, res) {
     role:roleMap[req.session.user.role]});
 });
 
+app.get('/main', restrict, function(req, res) {
+  res.render('main', {   
+    username:req.session.user.username,
+    role:roleMap[req.session.user.role]});
+});
+
 app.get('/video', restrict, function(req, res) {
   res.render('video', {
     path1:'网络质量分析与提速', 

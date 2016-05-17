@@ -13,16 +13,16 @@ nav.navbar.navbar-default#search-bar
       .nav.navbar-nav.navbar-right.navbar-form
         .input-group
           span.input-group-addon.search-param-label
-            | 时间粒度
+            | 地点
           select.form-control.select-time
-            option.text-right 小时粒度
-            option 天粒度
-            option 月粒度
+            option 南京
+            option 苏州
+            option 扬州
         .input-group.date
           span.input-group-addon.search-param-label
             | 开始日期
-          input.form-control#datetimepicker1.date-input(type='text')
+          input.form-control#startDate.date-input(type='text')
         .input-group.date
           span.input-group-addon.search-param-label
             | 结束日期
-          input.form-control#datetimepicker2.date-input(type='text')
+          input.form-control#endDate.date-input(type='text')

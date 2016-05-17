@@ -32,24 +32,65 @@ html(lang='zh-CN')
           .panel.panel-default
             .panel-heading#menu1(role='tab')
               h4.panel-title
-                a.accordion-toggle(role='button', data-toggle='collapse', data-parent='#sidebar', href='#menulist1', aria-expanded='true', aria-controls='menulist1')
+                a.accordion-toggle.collapsed#main(role='button', data-toggle='collapse', data-parent='#sidebar', href='#menulist1', aria-expanded='false', aria-controls='menulist1')
                   span.glyphicon.glyphicon-th-list.side-icon
-                  |  网络质量分析与提速
-            #menulist1.panel-collapse.collapse.in(role='tabpanel', aria-labelledby='#menu1')
-              ul.list-group
-                li.list-group-item.active 
-                  a(href='#') 视频流媒体质量分析与提速
-                li.list-group-item 
-                  a(href='#') 页面质量分析与提速
+                  |  首页
             .panel-heading#menu2(role='tab')
               h4.panel-title
-                a.accordion-toggle(role='button', data-toggle='collapse', data-parent='#sidebar', href='#menulist2', aria-expanded='false', aria-controls='menulist1')
+                a.accordion-toggle.collapsed(role='button', data-toggle='collapse', data-parent='#sidebar', href='#menulist2', aria-expanded='true', aria-controls='menulist2')
+                  span.glyphicon.glyphicon-th-list.side-icon
+                  |  视频流媒体体验趋势总览
+            #menulist2.panel-collapse.collapse(role='tabpanel', aria-labelledby='#menu2')
+              ul.list-group
+                li.list-group-item#video 
+                  a(href='#') 视频流媒体初始播放成功率
+                li.list-group-item 
+                  a(href='#') 视频流媒体初始缓冲延时
+                li.list-group-item 
+                  a(href='#') 视频流媒体播放停顿率
+                li.list-group-item 
+                  a(href='#') 视频流媒体停顿频次
+                li.list-group-item 
+                  a(href='#') 视频流媒体停顿占比
+                li.list-group-item 
+                  a(href='#') 视频流媒体下载速度
+            .panel-heading#menu3(role='tab')
+              h4.panel-title
+                a.accordion-toggle.collapsed(role='button', data-toggle='collapse', data-parent='#sidebar', href='#menulist3', aria-expanded='true', aria-controls='menulist3')
+                  span.glyphicon.glyphicon-th-list.side-icon
+                  |  WEB网站体验趋势总览
+            #menulist3.panel-collapse.collapse(role='tabpanel', aria-labelledby='#menu3')
+              ul.list-group
+                li.list-group-item#web
+                  a(href='#') 页面响应成功率
+                li.list-group-item 
+                  a(href='#') 页面响应延时
+                li.list-group-item 
+                  a(href='#') 页面显示成功率
+                li.list-group-item 
+                  a(href='#') 页面显示延时
+                li.list-group-item 
+                  a(href='#') 页面下载速率
+            .panel-heading#menu4(role='tab')
+              h4.panel-title
+                a.accordion-toggle.collapsed(role='button', data-toggle='collapse', data-parent='#sidebar', href='#menulist4', aria-expanded='false', aria-controls='menulist4')
+                  span.glyphicon.glyphicon-user.side-icon
+                  |  游戏体验总览
+            .panel-heading#menu5(role='tab')
+              h4.panel-title
+                a.accordion-toggle.collapsed(role='button', data-toggle='collapse', data-parent='#sidebar', href='#menulist5', aria-expanded='false', aria-controls='menulist5')
+                  span.glyphicon.glyphicon-user.side-icon
+                  |  用户行为分析
+            .panel-heading#menu6(role='tab')
+              h4.panel-title
+                a.accordion-toggle.collapsed(role='button', data-toggle='collapse', data-parent='#sidebar', href='#menulist6', aria-expanded='false', aria-controls='menulist6')
                   span.glyphicon.glyphicon-user.side-icon
                   |  系统管理
-            #menulist2.panel-collapse.collapse(role='tabpanel', aria-labelledby='#menu2')
+            #menulist6.panel-collapse.collapse(role='tabpanel', aria-labelledby='#menu6')
               ul.list-group
                 li.list-group-item 
                   a(href='#') 用户管理
       .col-md-10#detailContent
-        iframe#frameContent(src='/video')
+        iframe#frameContent(src='/main')
     include footer.jade
+    script(src='js/index.js')
