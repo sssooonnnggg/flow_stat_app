@@ -92,9 +92,7 @@ app.get('/index', restrict, function(req, res) {
 });
 
 app.get('/main', restrict, function(req, res) {
-  res.render('main', {   
-    username:req.session.user.username,
-    role:roleMap[req.session.user.role]});
+  res.render('main');
 });
 
 app.get('/video', restrict, function(req, res) {
@@ -104,19 +102,11 @@ app.get('/video', restrict, function(req, res) {
 });
 
 app.get('/network', restrict, function(req, res) {
-  res.render('network', {
-    path1:'网络质量分析与提速', 
-    path2:'页面质量分析与提速', 
-    username:req.session.user.username, 
-    role:roleMap[req.session.user.role]});
+  res.render('network');
 });
 
 app.get('/topn', restrict, function(req, res){
-  res.render('topn', {
-    path1:'网络整体状况', 
-    path2:'网络TOP N网站', 
-    username:req.session.user.username, 
-    role:roleMap[req.session.user.role]});
+  res.render('topn');
 });
 
 app.get('/account', restrict, function(req, res){
@@ -124,12 +114,7 @@ app.get('/account', restrict, function(req, res){
   if (req.session.user.role == "admin") {
     var users = [];
     auth.listUsers(users, function(){
-      res.render('account', { 
-        path1:'系统管理', 
-        path2:'用户管理', 
-        users, 
-        username:req.session.user.username, 
-        role:roleMap[req.session.user.role]});
+      res.render('account', {users});
     });
   } else {
     res.redirect('back');

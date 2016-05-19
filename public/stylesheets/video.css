@@ -10,6 +10,22 @@
     float:right;
 }
 
+#map-container {
+    float:left;
+    width:500px;
+    height:500px;
+}
+
+#bar-container {
+    height:500px;
+    margin-top:40px;
+    margin-left:500px;
+}
+
 .clear-item {
     clear:both;
+}
+
+.map {
+    margin-top:20px;
 }

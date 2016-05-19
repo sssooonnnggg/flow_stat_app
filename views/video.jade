@@ -26,10 +26,17 @@ html(lang='zh-CN')
       .frame
         .tab-bar
           ul
-          - for (var i = 1; i <= 6; ++i)
-            li.tab-btn(class=active_status[i-1], id='video-tab-'+i)=desc[i]
+            - for (var i = 1; i <= 6; ++i)
+              li.tab-btn(class=active_status[i-1], id='video-tab-'+i)=desc[i-1]
         #gauge-container
         #video-container
+        .clear-item
+      .frame.map
+        .tab-bar
+          ul
+            li.tab-btn.active 区域数据
+        #map-container
+        #bar-container
         .clear-item
     include footer.jade
     script(src='js/common.js')

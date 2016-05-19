@@ -1,59 +1,11 @@
+kqiCharts = {};
+curKqiChart = echarts.init(document.getElementById('video-container'));
+gaugeChart = echarts.init(document.getElementById('gauge-container'));
+mapChart = echarts.init(document.getElementById('map-container'));
+barChart = echarts.init(document.getElementById('bar-container'));
 
-// 基于准备好的dom，初始化echarts实例
-var curKqiChart = echarts.init(document.getElementById('video-container'));
-var gaugeChart = echarts.init(document.getElementById('gauge-container'));
-var kqiCharts = {};
-
-var date = [];
-var data = [];
-var base = +new Date(2015, 9, 3);
-var oneDay = 24 * 3600 * 1000;
-
-// 指定图表的配置项和数据
-var option = {
-    tooltip: {
-        trigger: 'axis'
-    },
-    toolbox: {
-        show: false,
-        feature: {
-            dataZoom: {},
-            restore: {},
-            saveAsImage: {}
-        }
-    },
-    /*legend: {
-        data:['视频MOS值'],
-        y:'bottom',
-        x:'left',
-        padding:[50, 50, 50, 20],
-    },*/
-    xAxis:  {
-        type: 'category',
-        boundaryGap: false,
-        data : date
-    },
-    grid:   {
-        x : 70,
-        y : 20,
-        x2 : 50,
-        y2 : 50
-    },
-    yAxis: {
-        max:20,
-        type: 'value',
-        axisLabel: {
-            formatter: '{value} 次'
-        }
-    },
-    series: [
-        {
-            name:'视频MOS值',
-            type:'line',
-            data:data
-        }
-    ]
-};
+date = [];
+data = [];
 
 var date1 = new Date();
 var date2 = new Date();
@@ -102,6 +54,52 @@ function fakeVideoData() {
 
 $(function(){
 
+    // 指定图表的配置项和数据
+    option = {
+        tooltip: {
+            trigger: 'axis'
+        },
+        toolbox: {
+            show: false,
+            feature: {
+                dataZoom: {},
+                restore: {},
+                saveAsImage: {}
+            }
+        },
+        /*legend: {
+            data:['视频MOS值'],
+            y:'bottom',
+            x:'left',
+            padding:[50, 50, 50, 20],
+        },*/
+        xAxis:  {
+            type: 'category',
+            boundaryGap: false,
+            data : date
+        },
+        grid:   {
+            x : 70,
+            y : 20,
+            x2 : 50,
+            y2 : 50
+        },
+        yAxis: {
+            max:20,
+            type: 'value',
+            axisLabel: {
+                formatter: '{value} 次'
+            }
+        },
+        series: [
+            {
+                name:'视频MOS值',
+                type:'line',
+                data:data
+            }
+        ]
+    };
+
     initDateTimePicker();
 
     gaugeOption = {
@@ -139,6 +137,94 @@ $(function(){
     };
 
     fakeVideoData();
+
+    // 地图数据
+    $.get('json/jiangsu.json', function (jiangsuJson) {
+        echarts.registerMap('jiangsu', jiangsuJson);
+        mapChart.setOption({
+            visualMap: {
+                min: 800,
+                max: 60000,
+                left: '5%',
+                text:['高','低'],
+                realtime: false,
+                calculable: true,
+                color: ['rgba(255, 50, 50, 255)','rgba(255, 240, 240, 255)'],
+            },
+            tooltip: {
+                trigger: 'item',
+                formatter: '{b}<br/>{c}'
+            },
+            series: [{
+                type: 'map',
+                map: 'jiangsu',
+                label: {
+                    normal: {
+                        textStyle: {
+                            color: '#666'
+                        }
+                    }
+                },
+                itemStyle:{
+                    normal:{
+                        label:{
+                            show:true
+                        },
+                        borderWidth:'0',
+                        shadowColor: 'rgba(0, 0, 0, 0.5)',
+                        shadowBlur: 10
+                    },
+                    emphasis:{label:{show:true}}
+                },
+                data:[
+                    {name: '南京市', value: 20057.34},
+                    {name: '苏州市', value: 15477.48},
+                    {name: '常州市', value: 31686.1},
+                    {name: '无锡市', value: 6992.6},
+                    {name: '徐州市', value: 44045.49},
+                    {name: '连云港市', value: 30000.64},
+                    {name: '盐城市', value: 37659.78},
+                    {name: '淮安市', value: 20000.97},
+                    {name: '宿迁市', value: 60000.26},
+                    {name: '扬州市', value: 21900.9},
+                    {name: '镇江市', value: 4918.26},
+                    {name: '南通市', value: 5881.84},
+                    {name: '泰州市', value: 9999.84},
+                ],
+            }]
+        });
+    });
+
+    barOption = {
+        tooltip : {
+            trigger: 'axis',
+            axisPointer : { 
+                type : 'shadow'
+            }
+        },
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        xAxis: {
+            type: 'value',
+            boundaryGap: [0, 0.01]
+        },
+        yAxis: {
+            type: 'category',
+            data: ['南京市','苏州市','常州市','无锡市','徐州市','连云港市', '盐城市', '淮安市', '宿迁市', '扬州市', '镇江市', '南通市', '泰州市'],
+        },
+        series: [
+            {
+                type: 'bar',
+                data: [20057.34, 15477.48, 31686.1, 6992.6, 44045.49, 30000.64, 37659.78, 20000.97, 60000.26, 21900.9, 4918.26, 5881.84, 9999.84],
+            },
+        ]
+    };
+
+    barChart.setOption(barOption);
 
     $('#search-btn').click(function(){
         fakeVideoData();
