@@ -71,9 +71,11 @@ function randomAxis(date, data)
 }
 
 function fakeVideoData() {
-    var constFormatter = ["{value} %", "{value} kbps"]
+    var constFormatter = ["{value} %", "{value} ms", "{value} %", "{value} 次", "{value} %", "{value} kbps"];
+    var desc = ['视频流媒体初始播放成功率', '视频流媒体初始缓冲延时', '视频流媒体播放停顿率', '视频流媒体停顿频次', '视频流媒体停顿占比', '视频流媒体下载速度'];
+    var value = [95, 2259, 50, 39, 5, 32000];
 
-    for (var i = 1; i < 3; i++) {
+    for (var i = 1; i < 7; i++) {
         var chartId = "video-tab-" + i;
         kqiCharts[chartId] = {
             date:[],
@@ -82,6 +84,8 @@ function fakeVideoData() {
         };
         randomAxis(kqiCharts[chartId].date, kqiCharts[chartId].data);
         kqiCharts[chartId].formatter = constFormatter[i - 1];
+        kqiCharts[chartId].desc = desc[i - 1];
+        kqiCharts[chartId].value = value[i - 1];
     }
 
     var divId = $('.video-tab-btn,  .active').attr("id");
@@ -90,6 +94,9 @@ function fakeVideoData() {
     option.yAxis.axisLabel.formatter = kqiCharts[divId].formatter;
     curKqiChart.setOption(option);
 
+    gaugeOption.series[0].data[0].name = kqiCharts[divId].desc;
+    gaugeOption.series[0].data[0].value = kqiCharts[divId].value;
+    gaugeOption.series[0].detail.formatter = kqiCharts[divId].formatter;
     gaugeChart.setOption(gaugeOption);
 }
 
@@ -98,9 +105,6 @@ $(function(){
     initDateTimePicker();
 
     gaugeOption = {
-        tooltip : {
-            formatter: "{a} <br/>{b} : {c}%"
-        },
         toolbox: {
             feature: {
                 restore: {},
@@ -151,6 +155,11 @@ $(function(){
         option.series[0].data = kqiCharts[divId].data;
         option.yAxis.axisLabel.formatter = kqiCharts[divId].formatter;
         curKqiChart.setOption(option);
+
+        gaugeOption.series[0].data[0].name = kqiCharts[divId].desc;
+        gaugeOption.series[0].data[0].value = kqiCharts[divId].value;
+        gaugeOption.series[0].detail.formatter = kqiCharts[divId].formatter;
+        gaugeChart.setOption(gaugeOption);
     })
 
 });

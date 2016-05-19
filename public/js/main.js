@@ -34,7 +34,7 @@ $(function() {
     video.setOption(video_option);
 
     $('#video').click(function() {
-        window.location.href = '/video';
+        window.location.href = '/video?id=1';
     });
 
     web_option = {

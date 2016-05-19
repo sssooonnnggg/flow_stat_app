@@ -1,9 +1,12 @@
 doctype html
 html(lang='zh-CN')
   include header.jade
+  link(href='http://cdn.bootcss.com/bootstrap-table/1.10.1/bootstrap-table.min.css', rel='stylesheet')
+  link(href='stylesheets/common.css', rel='stylesheet')
+  link(href='stylesheets/account.css', rel='stylesheet')
   body
-    include navbar.jade
-    .container
+    .container-fluid#current-path
+      h4 系统管理 - 用户管理
       .alert.alert-danger#apply-failed(role='alert')
         | 更新用户数据失败
       .alert.alert-success#apply-success(role='alert')

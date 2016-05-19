@@ -42,17 +42,17 @@ html(lang='zh-CN')
                   |  视频流媒体体验趋势总览
             #menulist2.panel-collapse.collapse(role='tabpanel', aria-labelledby='#menu2')
               ul.list-group
-                li.list-group-item#video 
+                li.list-group-item.video(index='1')
                   a(href='#') 视频流媒体初始播放成功率
-                li.list-group-item 
+                li.list-group-item.video(index='2') 
                   a(href='#') 视频流媒体初始缓冲延时
-                li.list-group-item 
+                li.list-group-item.video(index='3') 
                   a(href='#') 视频流媒体播放停顿率
-                li.list-group-item 
+                li.list-group-item.video(index='4')
                   a(href='#') 视频流媒体停顿频次
-                li.list-group-item 
+                li.list-group-item.video(index='5') 
                   a(href='#') 视频流媒体停顿占比
-                li.list-group-item 
+                li.list-group-item.video(index='6') 
                   a(href='#') 视频流媒体下载速度
             .panel-heading#menu3(role='tab')
               h4.panel-title
@@ -89,7 +89,7 @@ html(lang='zh-CN')
             #menulist6.panel-collapse.collapse(role='tabpanel', aria-labelledby='#menu6')
               ul.list-group
                 li.list-group-item 
-                  a(href='#') 用户管理
+                  a#account(href='#') 用户管理
       .col-md-10#detailContent
         iframe#frameContent(src='/main')
     include footer.jade

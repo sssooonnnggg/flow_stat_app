@@ -98,11 +98,9 @@ app.get('/main', restrict, function(req, res) {
 });
 
 app.get('/video', restrict, function(req, res) {
+  console.log(req.query.id);
   res.render('video', {
-    path1:'网络质量分析与提速', 
-    path2:'视频流媒体质量分析与提速', 
-    username:req.session.user.username,
-    role:roleMap[req.session.user.role]});
+    id:req.query.id});
 });
 
 app.get('/network', restrict, function(req, res) {

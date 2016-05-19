@@ -1,0 +1,7 @@
+#apply-failed, #apply-success {
+    display: none;
+}
+
+#table, .fixed-table-container tbody .selected td {
+    background-color:white;
+}
