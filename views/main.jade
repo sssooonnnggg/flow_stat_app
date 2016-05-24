@@ -14,13 +14,24 @@ html(lang='zh-CN')
       .frame.overview-left
         .tab-bar
           ul
-            li.tab-btn.active 视频流媒体体验趋势总览
+            li.tab-btn.active#video-tab 视频流媒体体验趋势总览
         .radar#video
+        .score
+          .score-chart#video-score
+          .score-start 体验得分 = 
+          .score-part ( 视频流媒体初始播放成功率 * 0.2 + 视频流媒体初始缓冲延时 * 0.2 
+          .score-part + 视频流媒体播放停顿率 * 0.2 + 视频流媒体停顿频次 * 0.2
+          .score-part + 视频流媒体停顿占比   * 0.2 + 视频流媒体下载速度 * 0.2 ) * 100
       .frame.overview-right
         .tab-bar
           ul
-            li.tab-btn.active WEB网站体验趋势总览
+            li.tab-btn.active#web-tab WEB 网站体验趋势总览
         .radar#web
+        .score#web-score-container
+          .score-chart#web-score
+          .score-start 体验得分 = 
+          .score-part ( 页面响应成功率 * 0.2 + 页面响应延时 * 0.2 + 页面显示成功率 * 0.2
+          .score-part + 页面显示延时 * 0.2 + 页面下载速率 * 0.2 ) * 100
       .frame.overview-left
         .tab-bar
           ul

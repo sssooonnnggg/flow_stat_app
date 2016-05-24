@@ -7,17 +7,25 @@ $(function() {
     var game = echarts.init(document.getElementById('game'));
     var user = echarts.init(document.getElementById('user'));
 
+    var video_score = echarts.init(document.getElementById('video-score'));
+    var web_score = echarts.init(document.getElementById('web-score'));
+
     video_option = {
         tooltip: {},
         radar: {
             // shape: 'circle',
+            name: {
+                textStyle: {
+                    color:'#333'
+                }
+            },
             indicator: [
-               { name: '视频流媒体初始播放成功率', max: 6500},
-               { name: '视频流媒体初始缓冲延时', max: 16000},
-               { name: '视频流媒体播放停顿率', max: 30000},
-               { name: '视频流媒体停顿频次', max: 38000},
-               { name: '视频流媒体停顿占比', max: 52000},
-               { name: '视频流媒体下载速度', max: 25000}
+               { name: '视频流媒体初始播放成功率(%)', max: 6500},
+               { name: '视频流媒体初始缓冲延时(ms)', max: 16000},
+               { name: '视频流媒体播放停顿率(%)', max: 30000},
+               { name: '视频流媒体停顿频次(次)', max: 38000},
+               { name: '视频流媒体停顿占比(%)', max: 52000},
+               { name: '视频流媒体下载速度(kbps)', max: 25000}
             ]
         },
         series: [{
@@ -33,20 +41,24 @@ $(function() {
 
     video.setOption(video_option);
 
-    $('#video').click(function() {
+    $('#video, #video-tab').click(function() {
         window.location.href = '/video?id=1';
     });
 
     web_option = {
         tooltip: {},
         radar: {
-            // shape: 'circle',
+            name: {
+                textStyle: {
+                    color:'#333'
+                }
+            },
             indicator: [
-               { name: '页面响应成功率', max: 100},
-               { name: '页面响应延时', max: 100},
-               { name: '页面显示成功率', max: 100},
-               { name: '页面显示延时', max: 100},
-               { name: '页面下载速率', max: 100},
+               { name: '页面响应成功率(%)', max: 100},
+               { name: '页面响应延时(ms)', max: 100},
+               { name: '页面显示成功率(%)', max: 100},
+               { name: '页面显示延时(ms)', max: 100},
+               { name: '页面下载速率(kbps)', max: 100},
             ]
         },
         series: [{
@@ -62,7 +74,59 @@ $(function() {
 
     web.setOption(web_option);
 
-    game_option = {
+    video_score_option = {
+      series: [
+          {
+              type:'pie',
+              radius: ['70%', '78%'],
+              avoidLabelOverlap: false,
+              label: {
+                  normal: {
+                      show: true,
+                      position: 'center',
+                          textStyle: {
+                          fontSize: '20',
+                          fontWeight: 'bold'
+                      }
+                  },
+                  emphasis: {
+                      show: true,
+                  }
+              },
+              labelLine: {
+                  normal: {
+                      show: false
+                  }
+              },
+              itemStyle: {
+                  normal: {
+                      color:function(param) {
+                              if(param.dataIndex === 0) {
+                                  return "#4cc3a5";
+                              }
+                              else {
+                                  return "#eee";
+                              }
+                          }
+                      }
+              },
+              data:[
+                  {value:75, name:'75'},
+                  {value:25, name:''},
+              ]
+          }
+      ]
+  };
+
+  video_score.setOption(video_score_option);
+
+  video_score_option.series[0].data = [
+      {value:95, name:'95'},
+      {value:5, name:''},
+    ];
+  web_score.setOption(video_score_option);
+
+    /*game_option = {
         tooltip: {},
         radar: {
             // shape: 'circle',
@@ -110,6 +174,6 @@ $(function() {
         }]
     };
 
-    user.setOption(user_option); 
+    user.setOption(user_option); */
 
 });

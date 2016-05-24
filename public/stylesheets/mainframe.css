@@ -20,7 +20,7 @@ body {
 	margin-top:5px;
 }
 
-#navbar-title, .navbar-right li a {
+#navbar-title, .navbar-right > li > a {
 	color:#EFF3FD !important;
 }
 
@@ -149,4 +149,12 @@ body {
     border: none;
     background-color: transparent;
     background-color: #f2f2f2;
+}
+
+#navgation {
+    margin-top:20px;
+}
+
+.dropdown-item {
+    color:#333 !important;
 }

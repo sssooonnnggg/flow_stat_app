@@ -15,7 +15,7 @@ html(lang='zh-CN')
             span.icon-bar
           a.navbar-brand#navbar-title
             span.glyphicon.glyphicon-stats(aria-hidden='true')#title-icon
-            | 网站及视频流媒体质量分析与提速管理系统
+            | 宽带网用户感知分析系统
         #my-navbar-collapse.collapse.navbar-collapse
           ul.nav.navbar-nav.navbar-right
             li
@@ -26,6 +26,9 @@ html(lang='zh-CN')
               a(href='/logout')
                   span.glyphicon.glyphicon-log-out 
                   |   注销
+          .navbar-form.navbar-right#navgation
+            .form-group
+              input#nav-input(type='text', data-provide="typeahead")
     .container-fluid#content
       .col-md-2#accordion
         .panel-group#sidebar(role='tablist', aria-multiselectable='true')
@@ -93,4 +96,5 @@ html(lang='zh-CN')
       .col-md-10#detailContent
         iframe#frameContent(src='/main')
     include footer.jade
+    script(src='js/bootstrap3-typeahead.min.js')
     script(src='js/index.js')
