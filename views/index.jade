@@ -3,7 +3,7 @@ html(lang='zh-CN')
   head
     include header.jade
     link(href='stylesheets/bootstrap-datetimepicker.min.css', rel='stylesheet', media='screen')
-    link(href='stylesheets/mainframe.css', rel='stylesheet')
+    link(href='stylesheets/index.css', rel='stylesheet')
   body
     nav.navbar.navbar-default.my-nav-bar.navbar-fixed-top
       .container-fluid
@@ -28,7 +28,7 @@ html(lang='zh-CN')
                   |   注销
           .navbar-form.navbar-right#navgation
             .form-group
-              input#nav-input(type='text', data-provide="typeahead")
+              input.form-control#nav-input(type='text', data-provide="typeahead", placeholder="输入导航内容")
     .container-fluid#content
       .col-md-2#accordion
         .panel-group#sidebar(role='tablist', aria-multiselectable='true')
@@ -64,15 +64,15 @@ html(lang='zh-CN')
                   |  WEB网站体验趋势总览
             #menulist3.panel-collapse.collapse(role='tabpanel', aria-labelledby='#menu3')
               ul.list-group
-                li.list-group-item#web
+                li.list-group-item.network(index='1')
                   a(href='#') 页面响应成功率
-                li.list-group-item 
+                li.list-group-item.network(index='2')
                   a(href='#') 页面响应延时
-                li.list-group-item 
+                li.list-group-item.network(index='3')
                   a(href='#') 页面显示成功率
-                li.list-group-item 
+                li.list-group-item.network(index='4')
                   a(href='#') 页面显示延时
-                li.list-group-item 
+                li.list-group-item.network(index='5')
                   a(href='#') 页面下载速率
             .panel-heading#menu4(role='tab')
               h4.panel-title

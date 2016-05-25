@@ -3,7 +3,7 @@ $(function() {
     initDateTimePicker();
 
     var video = echarts.init(document.getElementById('video'));
-    var web = echarts.init(document.getElementById('web'));
+    var web = echarts.init(document.getElementById('network'));
     var game = echarts.init(document.getElementById('game'));
     var user = echarts.init(document.getElementById('user'));
 
@@ -43,6 +43,10 @@ $(function() {
 
     $('#video, #video-tab').click(function() {
         window.location.href = '/video?id=1';
+    });
+
+    $('#network, #netwrok-tab').click(function() {
+        window.location.href = '/network?id=1';
     });
 
     web_option = {

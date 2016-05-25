@@ -102,7 +102,8 @@ app.get('/video', restrict, function(req, res) {
 });
 
 app.get('/network', restrict, function(req, res) {
-  res.render('network');
+  res.render('network', {
+    id:req.query.id});
 });
 
 app.get('/topn', restrict, function(req, res){

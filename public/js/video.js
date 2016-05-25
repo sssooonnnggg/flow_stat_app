@@ -40,7 +40,7 @@ function fakeVideoData() {
         kqiCharts[chartId].value = value[i - 1];
     }
 
-    var divId = $('.video-tab-btn,  .active').attr("id");
+    var divId = $('.tab-btn,  .active').attr("id");
     option.xAxis.data = kqiCharts[divId].date;
     option.series[0].data = kqiCharts[divId].data;
     option.yAxis.axisLabel.formatter = kqiCharts[divId].formatter;
