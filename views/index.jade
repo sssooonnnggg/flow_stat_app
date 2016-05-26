@@ -28,7 +28,7 @@ html(lang='zh-CN')
                   |   注销
           .navbar-form.navbar-right#navgation
             .form-group
-              input.form-control#nav-input(type='text', data-provide="typeahead", placeholder="输入导航内容")
+              input.form-control#nav-input(type='text', data-provide="typeahead", placeholder="输入感兴趣的内容")
     .container-fluid#content
       .col-md-2#accordion
         .panel-group#sidebar(role='tablist', aria-multiselectable='true')
@@ -84,6 +84,7 @@ html(lang='zh-CN')
                 a.accordion-toggle.collapsed(role='button', data-toggle='collapse', data-parent='#sidebar', href='#menulist5', aria-expanded='false', aria-controls='menulist5')
                   span.glyphicon.glyphicon-user.side-icon
                   |  用户行为分析
+          - if (role == '管理员')
             .panel-heading#menu6(role='tab')
               h4.panel-title
                 a.accordion-toggle.collapsed(role='button', data-toggle='collapse', data-parent='#sidebar', href='#menulist6', aria-expanded='false', aria-controls='menulist6')

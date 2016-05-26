@@ -41,13 +41,30 @@ $(function() {
 
     video.setOption(video_option);
 
-    $('#video, #video-tab').click(function() {
+    video.on('click', function(params) {
+      //alert(JSON.stringify(params));
+      if(params.name == '视频流媒体初始播放成功率(%)') {
+        window.location.href = '/video?id=1';
+      } else if (params.name == '视频流媒体初始缓冲延时(ms)') {
+        window.location.href = '/video?id=2';
+      } else if (params.name == '视频流媒体播放停顿率(%)') {
+        window.location.href = '/video?id=3';
+      } else if (params.name == '视频流媒体停顿频次(次)') {
+        window.location.href = '/video?id=4';
+      } else if (params.name == '视频流媒体停顿占比(%)') {
+        window.location.href = '/video?id=5';
+      } else if (params.name == '视频流媒体下载速度(kbps)') {
+        window.location.href = '/video?id=6';
+      }
+    });
+
+    /*$('#video, #video-tab').click(function() {
         window.location.href = '/video?id=1';
     });
 
     $('#network, #netwrok-tab').click(function() {
         window.location.href = '/network?id=1';
-    });
+    });*/
 
     web_option = {
         tooltip: {},
@@ -77,6 +94,21 @@ $(function() {
     };
 
     web.setOption(web_option);
+
+    web.on('click', function(params) {
+      //alert(JSON.stringify(params));
+      if(params.name == '页面响应成功率(%)') {
+        window.location.href = '/network?id=1';
+      } else if (params.name == '页面响应延时(ms)') {
+        window.location.href = '/network?id=2';
+      } else if (params.name == '页面显示成功率(%)') {
+        window.location.href = '/network?id=3';
+      } else if (params.name == '页面显示延时(ms)') {
+        window.location.href = '/network?id=4';
+      } else if (params.name == '页面下载速率(kbps)') {
+        window.location.href = '/network?id=5';
+      };
+    });
 
     video_score_option = {
       series: [

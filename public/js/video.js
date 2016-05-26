@@ -15,9 +15,9 @@ function randomAxis(date, data)
     date.length = 0;
     data.length = 0;
     var step = (date2.valueOf() - date1.valueOf()) / 20;
-    for (var i = 0; i < 20; i++) {
+    for (var i = 0; i <= 20; i++) {
         var now = new Date(date1.valueOf() + step * i);
-        date.push([now.getFullYear(), now.getMonth() + 1, now.getDate()].join('-'));
+        date.push(now.toString());
         data.push(Math.random() * 5 + 8);
     }
 }
@@ -57,7 +57,8 @@ $(function(){
     // 指定图表的配置项和数据
     option = {
         tooltip: {
-            trigger: 'axis'
+            trigger: 'axis',
+            formatter:'{b}<br />{c}',
         },
         toolbox: {
             show: false,
@@ -76,7 +77,10 @@ $(function(){
         xAxis:  {
             type: 'category',
             boundaryGap: false,
-            data : date
+            data : date,
+            axisLabel: {
+                formatter:formateDate,
+            }
         },
         grid:   {
             x : 70,
@@ -93,9 +97,8 @@ $(function(){
         },
         series: [
             {
-                name:'视频MOS值',
                 type:'line',
-                data:data
+                data:data,
             }
         ]
     };
