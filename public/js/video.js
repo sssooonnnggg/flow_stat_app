@@ -7,21 +7,6 @@ barChart = echarts.init(document.getElementById('bar-container'));
 date = [];
 data = [];
 
-var date1 = new Date();
-var date2 = new Date();
-
-function randomAxis(date, data)
-{
-    date.length = 0;
-    data.length = 0;
-    var step = (date2.valueOf() - date1.valueOf()) / 20;
-    for (var i = 0; i <= 20; i++) {
-        var now = new Date(date1.valueOf() + step * i);
-        date.push(now.toString());
-        data.push(Math.random() * 5 + 8);
-    }
-}
-
 function fakeVideoData() {
     var constFormatter = ["{value} %", "{value} ms", "{value} %", "{value} 次", "{value} %", "{value} kbps"];
     var desc = ['视频流媒体初始播放成功率', '视频流媒体初始缓冲延时', '视频流媒体播放停顿率', '视频流媒体停顿频次', '视频流媒体停顿占比', '视频流媒体下载速度'];
@@ -34,7 +19,7 @@ function fakeVideoData() {
             data:[],
             formatter:"",
         };
-        randomAxis(kqiCharts[chartId].date, kqiCharts[chartId].data);
+        getDates(kqiCharts[chartId].date, kqiCharts[chartId].data);
         kqiCharts[chartId].formatter = constFormatter[i - 1];
         kqiCharts[chartId].desc = desc[i - 1];
         kqiCharts[chartId].value = value[i - 1];
@@ -44,6 +29,7 @@ function fakeVideoData() {
     option.xAxis.data = kqiCharts[divId].date;
     option.series[0].data = kqiCharts[divId].data;
     option.yAxis.axisLabel.formatter = kqiCharts[divId].formatter;
+
     curKqiChart.setOption(option);
 
     gaugeOption.series[0].data[0].name = kqiCharts[divId].desc;
@@ -58,7 +44,7 @@ $(function(){
     option = {
         tooltip: {
             trigger: 'axis',
-            formatter:'{b}<br />{c}',
+            formatter:'{c}',
         },
         toolbox: {
             show: false,

@@ -23,6 +23,9 @@ var formatMap = {
     },
 }
 
+var date1 = new Date(2016, 5, 20);
+var date2 = new Date(2016, 5, 27);
+
 function initDateTimePicker() {
     var defaultOption = {
         format:'yyyy-mm-dd hh:00',
@@ -42,6 +45,9 @@ function initDateTimePicker() {
     $('#endDate').datetimepicker().on('changeDate', function(ev){
         date2 = ev.date;
     });
+
+    $('#startDate').datetimepicker('update', date1);
+    $('#endDate').datetimepicker('update', date2);
 };
 
 $(function(){
@@ -68,6 +74,29 @@ function formateDate(value, index) {
         text = text + '-' + date.getDate();
     } else if (fined == '月') {
 
-    }
+    };
     return text;
-}
+};
+
+// 获取时间数组
+function getDates(date, data)
+{
+    date.length = 0;
+    data.length = 0;
+    var fined = $('#select-fined').val();
+    var interval = 0;
+    var distance = date2.getTime() - date1.getTime();
+    if (fined == '小时') {
+        interval = 3600 * 1000;     
+    } else if (fined == '天') {
+        interval = 3600 * 1000 * 24; 
+    } else if (fined == '月') {
+        interval = 3600 * 1000 * 24 * 30; 
+    };
+    var times = (date2.valueOf() - date1.valueOf()) / interval;
+    for (var i = 0; i <= times; i++) {
+        var now = new Date(date1.valueOf() + interval * i);
+        date.push(now.toString());
+        data.push(Math.random() * 5 + 8);
+    }
+};

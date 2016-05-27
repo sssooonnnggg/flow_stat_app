@@ -7,21 +7,6 @@ barChart = echarts.init(document.getElementById('bar-container'));
 date = [];
 data = [];
 
-var date1 = new Date();
-var date2 = new Date();
-
-function randomAxis(date, data)
-{
-    date.length = 0;
-    data.length = 0;
-    var step = (date2.valueOf() - date1.valueOf()) / 20;
-    for (var i = 0; i <= 20; i++) {
-        var now = new Date(date1.valueOf() + step * i);
-        date.push(now.toString());
-        data.push(Math.random() * 5 + 8);
-    }
-}
-
 function fakeNetworkData() {
     var constFormatter = ["{value} %", "{value} ms", "{value} %", "{value} ms", "{value} kbps"];
     var desc = ['页面响应成功率', '页面响应延时', '页面显示成功率', '页面显示延时', '页面下载速率'];
@@ -34,7 +19,7 @@ function fakeNetworkData() {
             data:[],
             formatter:"",
         };
-        randomAxis(kqiCharts[chartId].date, kqiCharts[chartId].data);
+        getDates(kqiCharts[chartId].date, kqiCharts[chartId].data);
         kqiCharts[chartId].formatter = constFormatter[i - 1];
         kqiCharts[chartId].desc = desc[i - 1];
         kqiCharts[chartId].value = value[i - 1];
