@@ -25,7 +25,7 @@ function fakeNetworkData() {
         kqiCharts[chartId].value = value[i - 1];
     }
 
-    var divId = $('.tab-btn,  .active').attr("id");
+    var divId = $('.active').attr("id");
     option.xAxis.data = kqiCharts[divId].date;
     option.series[0].data = kqiCharts[divId].data;
     option.yAxis.axisLabel.formatter = kqiCharts[divId].formatter;
@@ -218,8 +218,8 @@ $(function(){
         fakeNetworkData();
     })
 
-    $('.tab-btn, .inactive').click(function(){
-        var otherTabs = $('.tab-btn, .active');
+    $('.inactive').click(function(){
+        var otherTabs = $('.active');
         otherTabs.removeClass('active');
         otherTabs.addClass('inactive');
         $(this).removeClass('inactive');
