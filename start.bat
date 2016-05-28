@@ -1,2 +1,2 @@
-set DEBUG=myapp & npm start
+node-debug ./bin/www
 pause

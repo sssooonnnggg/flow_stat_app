@@ -7,34 +7,48 @@ barChart = echarts.init(document.getElementById('bar-container'));
 date = [];
 data = [];
 
-function fakeNetworkData() {
-    var constFormatter = ["{value} %", "{value} ms", "{value} %", "{value} ms", "{value} kbps"];
-    var desc = ['页面响应成功率', '页面响应延时', '页面显示成功率', '页面显示延时', '页面下载速率'];
-    var value = [95, 2259, 50, 39, 5, 32000];
+// 获取数据
+function getDatas(type, data, fn)
+{
+    var fined = $('#select-fined').val();
+    $.getJSON('http://127.0.0.1:3000/do?type='
+        + type
+        + '&timer_period=' + findeMap[fined]
+        + '&time_from=' + date1.getTime()
+        + '&time_end=' + date2.getTime()
+        + '&callback=?', function(serverData){
+            var videoData = serverData['data'];
+            data['network-tab-1'].data.length = 0;
+            data['network-tab-2'].data.length = 0;
+            data['network-tab-3'].data.length = 0;
+            data['network-tab-4'].data.length = 0;
+            data['network-tab-5'].data.length = 0;
+            for (var i = 0; i < date.length; ++i) {
+                var itemData = videoData[date[i]];
+                data['network-tab-1'].data.push(itemData['success-rate']);
+                data['network-tab-2'].data.push(itemData['buffer-delay']);
+                data['network-tab-3'].data.push(itemData['break-rate']);
+                data['network-tab-4'].data.push(itemData['break-time']);
+                data['network-tab-5'].data.push(itemData['break-percent']);
+            }
+            fn();
+        })
+}
 
-    for (var i = 1; i < 6; i++) {
-        var chartId = "network-tab-" + i;
-        kqiCharts[chartId] = {
-            date:[],
-            data:[],
-            formatter:"",
-        };
-        getDates(kqiCharts[chartId].date, kqiCharts[chartId].data);
-        kqiCharts[chartId].formatter = constFormatter[i - 1];
-        kqiCharts[chartId].desc = desc[i - 1];
-        kqiCharts[chartId].value = value[i - 1];
-    }
+function getNetworkData() {
+    getDates(date);
+    getDatas('queryhttp', kqiCharts, function() {
+        var divId = $('.active').attr("id");
+        option.xAxis.data = date;
+        option.series[0].data = kqiCharts[divId].data;
+        option.yAxis.axisLabel.formatter = kqiCharts[divId].formatter;
+        curChart.setOption(option);
 
-    var divId = $('.active').attr("id");
-    option.xAxis.data = kqiCharts[divId].date;
-    option.series[0].data = kqiCharts[divId].data;
-    option.yAxis.axisLabel.formatter = kqiCharts[divId].formatter;
-    curChart.setOption(option);
-
-    gaugeOption.series[0].data[0].name = kqiCharts[divId].desc;
-    gaugeOption.series[0].data[0].value = kqiCharts[divId].value;
-    gaugeOption.series[0].detail.formatter = kqiCharts[divId].formatter;
-    gaugeChart.setOption(gaugeOption);
+        gaugeOption.series[0].data[0].name = kqiCharts[divId].desc;
+        gaugeOption.series[0].data[0].value = kqiCharts[divId].value;
+        gaugeOption.series[0].detail.formatter = kqiCharts[divId].formatter;
+        gaugeChart.setOption(gaugeOption);
+    });
 }
 
 $(function(){
@@ -88,6 +102,22 @@ $(function(){
         ]
     };
 
+    var constFormatter = ["{value} %", "{value} ms", "{value} %", "{value} ms", "{value} kbps"];
+    var desc = ['页面响应成功率', '页面响应延时', '页面显示成功率', '页面显示延时', '页面下载速率'];
+    var value = [95, 2259, 50, 39, 5, 32000];
+
+    for (var i = 1; i < 6; i++) {
+        var chartId = "network-tab-" + i;
+        kqiCharts[chartId] = {
+            date:[],
+            data:[],
+            formatter:"",
+        };
+        kqiCharts[chartId].formatter = constFormatter[i - 1];
+        kqiCharts[chartId].desc = desc[i - 1];
+        kqiCharts[chartId].value = value[i - 1];
+    }
+
     initDateTimePicker();
 
     gaugeOption = {
@@ -124,7 +154,7 @@ $(function(){
         ]
     };
 
-    fakeNetworkData();
+    getNetworkData();
 
     // 地图数据
     $.get('json/jiangsu.json', function (jiangsuJson) {
@@ -215,17 +245,17 @@ $(function(){
     barChart.setOption(barOption);
 
     $('#search-btn').click(function(){
-        fakeNetworkData();
+        getNetworkData();
     })
 
-    $('.inactive').click(function(){
-        var otherTabs = $('.active');
-        otherTabs.removeClass('active');
-        otherTabs.addClass('inactive');
+    $('.tab-btn').click(function(){
+        var activeTabs = $('.active');
+        activeTabs.removeClass('active');
+        activeTabs.addClass('inactive');
         $(this).removeClass('inactive');
         $(this).addClass('active');
         var divId = $(this).attr("id");
-        option.xAxis.data = kqiCharts[divId].date;
+        option.xAxis.data = date;
         option.series[0].data = kqiCharts[divId].data;
         option.yAxis.axisLabel.formatter = kqiCharts[divId].formatter;
         curChart.setOption(option);

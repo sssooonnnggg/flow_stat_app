@@ -23,6 +23,12 @@ var formatMap = {
     },
 }
 
+var findeMap = {
+    '小时' : 'hour',
+    '天' : 'day',
+    '月' : 'month'
+}
+
 var date1 = new Date(2016, 5, 20);
 var date2 = new Date(2016, 5, 27);
 
@@ -79,10 +85,10 @@ function formateDate(value, index) {
 };
 
 // 获取时间数组
-function getDates(date, data)
+function getDates(date)
 {
     date.length = 0;
-    data.length = 0;
+    //data.length = 0;
     var fined = $('#select-fined').val();
     var interval = 0;
     var distance = date2.getTime() - date1.getTime();
@@ -95,8 +101,8 @@ function getDates(date, data)
     };
     var times = (date2.valueOf() - date1.valueOf()) / interval;
     for (var i = 0; i <= times; i++) {
-        var now = new Date(date1.valueOf() + interval * i);
-        date.push(now.toString());
-        data.push(Math.random() * 5 + 8);
+        var now = date1.valueOf() + interval * i;
+        date.push(now);
+        //data.push(Math.random() * 5 + 8);
     }
 };

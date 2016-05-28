@@ -7,35 +7,50 @@ barChart = echarts.init(document.getElementById('bar-container'));
 date = [];
 data = [];
 
-function fakeVideoData() {
-    var constFormatter = ["{value} %", "{value} ms", "{value} %", "{value} 次", "{value} %", "{value} kbps"];
-    var desc = ['视频流媒体初始播放成功率', '视频流媒体初始缓冲延时', '视频流媒体播放停顿率', '视频流媒体停顿频次', '视频流媒体停顿占比', '视频流媒体下载速度'];
-    var value = [95, 2259, 50, 39, 5, 32000];
+// 获取数据
+function getDatas(type, data, fn)
+{
+    var fined = $('#select-fined').val();
+    $.getJSON('http://127.0.0.1:3000/do?type='
+        + type
+        + '&timer_period=' + findeMap[fined]
+        + '&time_from=' + date1.getTime()
+        + '&time_end=' + date2.getTime()
+        + '&callback=?', function(serverData){
+            var videoData = serverData['data'];
+            data['video-tab-1'].data.length = 0;
+            data['video-tab-2'].data.length = 0;
+            data['video-tab-3'].data.length = 0;
+            data['video-tab-4'].data.length = 0;
+            data['video-tab-5'].data.length = 0;
+            data['video-tab-6'].data.length = 0;
+            for (var i = 0; i < date.length; ++i) {
+                var itemData = videoData[date[i]];
+                data['video-tab-1'].data.push(itemData['success-rate']);
+                data['video-tab-2'].data.push(itemData['buffer-delay']);
+                data['video-tab-3'].data.push(itemData['break-rate']);
+                data['video-tab-4'].data.push(itemData['break-time']);
+                data['video-tab-5'].data.push(itemData['break-percent']);
+                data['video-tab-6'].data.push(itemData['download-speed']);
+            }
+            fn();
+        })
+}
 
-    for (var i = 1; i < 7; i++) {
-        var chartId = "video-tab-" + i;
-        kqiCharts[chartId] = {
-            date:[],
-            data:[],
-            formatter:"",
-        };
-        getDates(kqiCharts[chartId].date, kqiCharts[chartId].data);
-        kqiCharts[chartId].formatter = constFormatter[i - 1];
-        kqiCharts[chartId].desc = desc[i - 1];
-        kqiCharts[chartId].value = value[i - 1];
-    }
+function getVideoData() {
+    getDates(date);
+    getDatas('queryvideo', kqiCharts, function() {
+        var divId = $('.active').attr("id");
+        option.xAxis.data = date;
+        option.series[0].data = kqiCharts[divId].data;
+        option.yAxis.axisLabel.formatter = kqiCharts[divId].formatter;
+        curKqiChart.setOption(option);
 
-    var divId = $('.active').attr("id");
-    option.xAxis.data = kqiCharts[divId].date;
-    option.series[0].data = kqiCharts[divId].data;
-    option.yAxis.axisLabel.formatter = kqiCharts[divId].formatter;
-
-    curKqiChart.setOption(option);
-
-    gaugeOption.series[0].data[0].name = kqiCharts[divId].desc;
-    gaugeOption.series[0].data[0].value = kqiCharts[divId].value;
-    gaugeOption.series[0].detail.formatter = kqiCharts[divId].formatter;
-    gaugeChart.setOption(gaugeOption);
+        gaugeOption.series[0].data[0].name = kqiCharts[divId].desc;
+        gaugeOption.series[0].data[0].value = kqiCharts[divId].value;
+        gaugeOption.series[0].detail.formatter = kqiCharts[divId].formatter;
+        gaugeChart.setOption(gaugeOption);
+    });
 }
 
 $(function(){
@@ -89,6 +104,23 @@ $(function(){
         ]
     };
 
+    var constFormatter = ["{value} %", "{value} ms", "{value} %", "{value} 次", "{value} %", "{value} kbps"];
+    var desc = ['视频流媒体初始播放成功率', '视频流媒体初始缓冲延时', '视频流媒体播放停顿率', '视频流媒体停顿频次', '视频流媒体停顿占比', '视频流媒体下载速度'];
+    var value = [95, 2259, 50, 39, 5, 32000];
+
+    // 初始化一些描述信息
+    for (var i = 1; i < 7; i++) {
+        var chartId = "video-tab-" + i;
+        kqiCharts[chartId] = {
+            date:[],
+            data:[],
+            formatter:"",
+        };
+        kqiCharts[chartId].formatter = constFormatter[i - 1];
+        kqiCharts[chartId].desc = desc[i - 1];
+        kqiCharts[chartId].value = value[i - 1];
+    }
+
     initDateTimePicker();
 
     gaugeOption = {
@@ -125,7 +157,7 @@ $(function(){
         ]
     };
 
-    fakeVideoData();
+    getVideoData();
 
     // 地图数据
     $.get('json/jiangsu.json', function (jiangsuJson) {
@@ -216,17 +248,17 @@ $(function(){
     barChart.setOption(barOption);
 
     $('#search-btn').click(function(){
-        fakeVideoData();
+        getVideoData();
     })
 
-    $('.inactive').click(function(){
-        var otherTabs = $('.active');
-        otherTabs.removeClass('active');
-        otherTabs.addClass('inactive');
+    $('.tab-btn').click(function(){
+        var activeTabs = $('.active');
+        activeTabs.removeClass('active');
+        activeTabs.addClass('inactive');
         $(this).removeClass('inactive');
         $(this).addClass('active');
         var divId = $(this).attr("id");
-        option.xAxis.data = kqiCharts[divId].date;
+        option.xAxis.data = date;
         option.series[0].data = kqiCharts[divId].data;
         option.yAxis.axisLabel.formatter = kqiCharts[divId].formatter;
         curKqiChart.setOption(option);
