@@ -113,7 +113,7 @@ $(function(){
         ]
     };
 
-    var constFormatter = ["{value} %", "{value} ms", "{value} %", "{value} ms", "{value} kbps"];
+    var constFormatter = ["{value} %", "{value} ms", "{value} %", "{value} ms", "{value} KB"];
     var desc = ['页面响应成功率', '页面响应延时', '页面显示成功率', '页面显示延时', '页面下载速率'];
     var value = [95, 2259, 50, 39, 5, 32000];
 

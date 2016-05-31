@@ -25,7 +25,7 @@ $(function() {
                { name: '视频流媒体播放停顿率(%)', max: 30000},
                { name: '视频流媒体停顿频次(次)', max: 38000},
                { name: '视频流媒体停顿占比(%)', max: 52000},
-               { name: '视频流媒体下载速度(kbps)', max: 25000}
+               { name: '视频流媒体下载速度(KB)', max: 25000}
             ]
         },
         series: [{
@@ -53,7 +53,7 @@ $(function() {
         window.location.href = '/video?id=4';
       } else if (params.name == '视频流媒体停顿占比(%)') {
         window.location.href = '/video?id=5';
-      } else if (params.name == '视频流媒体下载速度(kbps)') {
+      } else if (params.name == '视频流媒体下载速度(KB)') {
         window.location.href = '/video?id=6';
       }
     });
@@ -79,7 +79,7 @@ $(function() {
                { name: '页面响应延时(ms)', max: 100},
                { name: '页面显示成功率(%)', max: 100},
                { name: '页面显示延时(ms)', max: 100},
-               { name: '页面下载速率(kbps)', max: 100},
+               { name: '页面下载速率(KB)', max: 100},
             ]
         },
         series: [{
@@ -105,7 +105,7 @@ $(function() {
         window.location.href = '/network?id=3';
       } else if (params.name == '页面显示延时(ms)') {
         window.location.href = '/network?id=4';
-      } else if (params.name == '页面下载速率(kbps)') {
+      } else if (params.name == '页面下载速率(KB)') {
         window.location.href = '/network?id=5';
       };
     });
