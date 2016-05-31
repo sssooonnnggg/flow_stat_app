@@ -33,7 +33,7 @@ function getDatas(type, data, fn)
                     //data['video-tab-3'].data.push(itemData['break-rate']);
                     //data['video-tab-4'].data.push(itemData['break-time']);
                     //data['video-tab-5'].data.push(itemData['break-percent']);
-                    data['video-tab-6'].data.push(itemData['download-speed']);
+                    data['video-tab-6'].data.push(itemData['download_speed']);
                 }
                 else
                 {
