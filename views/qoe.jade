@@ -1,0 +1,32 @@
+doctype html
+html(lang='zh-CN')
+  head
+    include header.jade
+    link(href='stylesheets/bootstrap-datetimepicker.min.css', rel='stylesheet', media='screen')
+    link(href='http://cdn.bootcss.com/bootstrap-table/1.10.1/bootstrap-table.min.css', rel='stylesheet')
+    link(href='stylesheets/common.css', rel='stylesheet')
+    link(href='stylesheets/searchbar.css', rel='stylesheet')
+    link(href='stylesheets/qoe.css', rel='stylesheet')
+  body
+    .container-fluid#current-path
+      h4=desc[id-1]
+    include searchbar.jade
+    .container-fluid
+      .frame
+        .tab-bar
+          ul
+            - for (var i = 1; i <= 6; ++i)
+              li.tab-btn(class=active_status[i-1], id='video-tab-'+i)=desc[i-1]
+        #gauge-container
+        #video-container
+        .clear-item
+      .frame.map
+        .tab-bar
+          ul
+            li.tab-btn.active 区域数据
+        #map-container
+        #bar-container
+        .clear-item
+    include footer.jade
+    script(src='js/common.js')
+    script(src='js/qoe.js')

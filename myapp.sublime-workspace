@@ -83,7 +83,15 @@
 			"file": "public/js/video.js",
 			"settings":
 			{
-				"buffer_size": 7325,
+				"buffer_size": 8579,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "views/topn.jade",
+			"settings":
+			{
+				"buffer_size": 818,
 				"line_ending": "Windows"
 			}
 		},
@@ -91,7 +99,7 @@
 			"file": "public/js/network.js",
 			"settings":
 			{
-				"buffer_size": 7277,
+				"buffer_size": 8410,
 				"line_ending": "Windows"
 			}
 		},
@@ -99,39 +107,15 @@
 			"file": "public/js/common.js",
 			"settings":
 			{
-				"buffer_size": 2720,
+				"buffer_size": 2771,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "views/searchbar.jade",
+			"contents": "jQuery2230239606361799519_1464441195244({\n    \"retcode\": 0,\n    \"data\": {\n        \"1466352000000\": {\n            \"success-rate\": 11.4398296487052,\n            \"buffer-delay\": 12.576818275963888,\n            \"break-rate\": 8.604980667121708,\n            \"break-time\": 11.231710565742105,\n            \"break-percent\": 9.97702570236288,\n            \"download-speed\": 9.289333669701591\n        },\n        \"1466438400000\": {\n            \"success-rate\": 9.467526585329324,\n            \"buffer-delay\": 12.632812949130312,\n            \"break-rate\": 12.737970229471102,\n            \"break-time\": 9.15778997540474,\n            \"break-percent\": 8.727515841135755,\n            \"download-speed\": 9.472249679500237\n        },\n        \"1466524800000\": {\n            \"success-rate\": 12.76418760837987,\n            \"buffer-delay\": 11.487735459348187,\n            \"break-rate\": 12.567194365663454,\n            \"break-time\": 10.295138406334445,\n            \"break-percent\": 9.449090070091188,\n            \"download-speed\": 10.01920519117266\n        },\n        \"1466611200000\": {\n            \"success-rate\": 9.49458306725137,\n            \"buffer-delay\": 9.78893451928161,\n            \"break-rate\": 11.631553960731253,\n            \"break-time\": 9.716662268154323,\n            \"break-percent\": 9.545393437845632,\n            \"download-speed\": 10.84181879251264\n        }\n    }\n});",
 			"settings":
 			{
-				"buffer_size": 1197,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app.js",
-			"settings":
-			{
-				"buffer_size": 3758,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "views/index.jade",
-			"settings":
-			{
-				"buffer_size": 5095,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "views/video.jade",
-			"settings":
-			{
-				"buffer_size": 1293,
+				"buffer_size": 1357,
 				"line_ending": "Windows"
 			}
 		}
@@ -143,16 +127,16 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 104.0,
-		"last_filter": "Package Control: inst",
+		"height": 150.0,
+		"last_filter": "Package Control: in",
 		"selected_items":
 		[
 			[
-				"Package Control: inst",
+				"Package Control: in",
 				"Package Control: Install Package"
 			],
 			[
-				"Package Control: in",
+				"Package Control: inst",
 				"Package Control: Install Package"
 			],
 			[
@@ -196,19 +180,21 @@
 	],
 	"file_history":
 	[
+		"/F/Projects/Node/myapp/public/js/network.js",
+		"/F/Projects/Node/myapp/public/stylesheets/network.css",
+		"/F/Projects/Node/myapp/public/js/common.js",
+		"/F/Projects/Node/myapp/views/searchbar.jade",
+		"/F/Projects/Node/myapp/app.js",
+		"/F/Projects/Node/myapp/views/index.jade",
+		"/F/Projects/Node/myapp/views/video.jade",
 		"/F/Projects/Node/deepshark/dsui/README.md",
 		"/F/Projects/Node/myapp_old_version/public/js/video.js",
 		"/F/Projects/Node/myapp/public/js/index.js",
 		"/F/Projects/Node/myapp/public/js/main.js",
 		"/F/Projects/Node/myapp/public/stylesheets/main.css",
-		"/F/Projects/Node/myapp/views/index.jade",
 		"/F/Projects/Node/myapp/views/header.jade",
 		"/F/Projects/Node/myapp/views/login.jade",
-		"/F/Projects/Node/myapp/views/video.jade",
-		"/F/Projects/Node/myapp/public/js/network.js",
-		"/F/Projects/Node/myapp/public/stylesheets/network.css",
 		"/F/Projects/Node/myapp/public/js/video.js",
-		"/F/Projects/Node/myapp/app.js",
 		"/F/Projects/Node/myapp/views/main.jade",
 		"/F/Projects/Node/myapp/public/stylesheets/index.css",
 		"/F/Projects/Node/myapp/views/network.jade",
@@ -219,7 +205,6 @@
 		"/F/Projects/Node/react/react-tutorial/public/scripts/example.js",
 		"/F/Projects/Node/react/react-tutorial/comments.json",
 		"/F/Projects/Node/react/react-tutorial/public/index.html",
-		"/F/Projects/Node/myapp/public/js/common.js",
 		"/F/Projects/Node/myapp/public/stylesheets/searchbar.css",
 		"/F/Projects/Node/react/react-tutorial/package.json",
 		"/F/Projects/Node/react/react-tutorial/app.json",
@@ -232,7 +217,6 @@
 		"/F/Projects/Node/myapp/package.json",
 		"/F/Projects/Node/myapp_dist/views/navbar.jade",
 		"/F/Projects/Node/myapp/views/footer.jade",
-		"/F/Projects/Node/myapp/views/searchbar.jade",
 		"/F/Projects/Node/myapp/public/js/common",
 		"/F/Projects/Node/myapp/public/js/sidebar.js",
 		"/F/Projects/Node/myapp/public/js/login.js",
@@ -329,6 +313,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"push",
+			"getdates",
 			"getDates",
 			"random",
 			"randomdate",
@@ -401,13 +387,13 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 5,
 					"type": "text"
 				}
 			]
 		},
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -416,45 +402,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 7325,
+						"buffer_size": 8579,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								315,
-								315
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": -0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "public/js/network.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 7277,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1008,
-								1008
+								440,
+								440
 							]
 						],
 						"settings":
@@ -471,132 +427,12 @@
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "public/js/common.js",
-					"semi_transient": false,
+					"buffer": 2,
+					"file": "views/topn.jade",
+					"semi_transient": true,
 					"settings":
 					{
-						"buffer_size": 2720,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								562,
-								562
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "views/searchbar.jade",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1197,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1188,
-								1188
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Jade/Syntaxes/Jade.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "app.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3758,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2273,
-								2277
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1254.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "views/index.jade",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5095,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4386,
-								4386
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Jade/Syntaxes/Jade.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1026.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "views/video.jade",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1293,
+						"buffer_size": 818,
 						"regions":
 						{
 						},
@@ -617,7 +453,95 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "public/js/network.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 8410,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								439,
+								439
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "public/js/common.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2771,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1425.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1357,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								391,
+								391
+							]
+						],
+						"settings":
+						{
+							"is_xml": false,
+							"syntax": "Packages/Babel/JSON.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
 					"type": "text"
 				}
 			]

@@ -128,6 +128,10 @@ app.post('/account', restrict, function(req, res){
   });
 });
 
+app.post('/qoe', restrict, function(req, res){
+  res.render('qoe');
+});
+
 // 获取随机数据
 function getRandomData(data, fined, start_time, end_time)
 {

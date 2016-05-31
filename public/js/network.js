@@ -24,12 +24,24 @@ function getDatas(type, data, fn)
             data['network-tab-4'].data.length = 0;
             data['network-tab-5'].data.length = 0;
             for (var i = 0; i < date.length; ++i) {
-                var itemData = videoData[date[i]];
-                data['network-tab-1'].data.push(itemData['success-rate']);
-                data['network-tab-2'].data.push(itemData['buffer-delay']);
-                data['network-tab-3'].data.push(itemData['break-rate']);
-                data['network-tab-4'].data.push(itemData['break-time']);
-                data['network-tab-5'].data.push(itemData['break-percent']);
+                if (date[i] in videoData)
+                {
+                    var itemData = videoData[date[i]];
+                    data['network-tab-1'].data.push(itemData['get_state']);
+                    data['network-tab-2'].data.push(itemData['resp_delay']);
+                    //data['network-tab-3'].data.push(itemData['break-rate']);
+                    //data['network-tab-4'].data.push(itemData['break-time']);
+                    data['network-tab-5'].data.push(itemData['download_speed']);
+                }
+                else
+                {
+                    data['network-tab-1'].data.push(0);
+                    data['network-tab-2'].data.push(0);
+                    data['network-tab-3'].data.push(0);
+                    data['network-tab-4'].data.push(0);
+                    data['network-tab-5'].data.push(0);
+                }
+
             }
             fn();
         })

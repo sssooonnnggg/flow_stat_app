@@ -25,13 +25,25 @@ function getDatas(type, data, fn)
             data['video-tab-5'].data.length = 0;
             data['video-tab-6'].data.length = 0;
             for (var i = 0; i < date.length; ++i) {
-                var itemData = videoData[date[i]];
-                data['video-tab-1'].data.push(itemData['success-rate']);
-                data['video-tab-2'].data.push(itemData['buffer-delay']);
-                data['video-tab-3'].data.push(itemData['break-rate']);
-                data['video-tab-4'].data.push(itemData['break-time']);
-                data['video-tab-5'].data.push(itemData['break-percent']);
-                data['video-tab-6'].data.push(itemData['download-speed']);
+                if (date[i] in videoData)
+                {
+                    var itemData = videoData[date[i]];
+                    data['video-tab-1'].data.push(itemData['init_state']);
+                    //data['video-tab-2'].data.push(itemData['buffer-delay']);
+                    //data['video-tab-3'].data.push(itemData['break-rate']);
+                    //data['video-tab-4'].data.push(itemData['break-time']);
+                    //data['video-tab-5'].data.push(itemData['break-percent']);
+                    data['video-tab-6'].data.push(itemData['download-speed']);
+                }
+                else
+                {
+                    data['video-tab-1'].data.push(0);
+                    data['video-tab-2'].data.push(0);
+                    data['video-tab-3'].data.push(0);
+                    data['video-tab-4'].data.push(0);
+                    data['video-tab-5'].data.push(0);
+                    data['video-tab-6'].data.push(0);
+                }
             }
             fn();
         })

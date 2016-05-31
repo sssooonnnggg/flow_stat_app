@@ -27,6 +27,11 @@ $(function() {
         $('#frameContent').attr('src', '/account');
     });
 
+    $('#qoe').click(function() {
+        $('.active').removeClass('active');
+        $('#frameContent').attr('src', '/qoe');
+    });    
+
     $('#nav-input').typeahead(
         {
             source:
