@@ -9,24 +9,32 @@ html(lang='zh-CN')
     link(href='stylesheets/qoe.css', rel='stylesheet')
   body
     .container-fluid#current-path
-      h4=desc[id-1]
-    include searchbar.jade
-    .container-fluid
-      .frame
-        .tab-bar
-          ul
-            - for (var i = 1; i <= 6; ++i)
-              li.tab-btn(class=active_status[i-1], id='video-tab-'+i)=desc[i-1]
-        #gauge-container
-        #video-container
-        .clear-item
-      .frame.map
-        .tab-bar
-          ul
-            li.tab-btn.active 区域数据
-        #map-container
-        #bar-container
-        .clear-item
+      h4 视频网站QOE单用户详情
+    nav.navbar.navbar-default#search-bar
+      .container-fluid#search-container
+        .navbar-header
+          a.navbar-brand#search-label 
+            span.glyphicon.glyphicon-search#search-icon
+            |  筛选条件
+          div.navbar-brand#search-arrow-container
+            span#search-arrow
+        .collapse.navbar-collapse
+          ul.nav.navbar-nav.navbar-right
+            li
+              a#search-btn 查询
+          .nav.navbar-nav.navbar-right.navbar-form
+            .input-group
+              span.input-group-addon.search-param-label
+                | 用户账号
+              input.form-control#userAccount.date-input
+            .input-group.date
+              span.input-group-addon.search-param-label
+                | 开始日期
+              input.form-control#startDate.date-input(type='text', value='2015-05-20 00:00')
+            .input-group.date
+              span.input-group-addon.search-param-label
+                | 结束日期
+              input.form-control#endDate.date-input(type='text', value='2015-05-27 00:00')
+      
     include footer.jade
-    script(src='js/common.js')
     script(src='js/qoe.js')

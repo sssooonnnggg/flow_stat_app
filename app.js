@@ -128,7 +128,7 @@ app.post('/account', restrict, function(req, res){
   });
 });
 
-app.post('/qoe', restrict, function(req, res){
+app.get('/qoe', restrict, function(req, res){
   res.render('qoe');
 });
 

@@ -11,7 +11,7 @@ data = [];
 function getDatas(type, data, fn)
 {
     var fined = $('#select-fined').val();
-    $.getJSON('http://139.196.187.188:3000/do?type='
+    $.getJSON('http://127.0.0.1:3000/do?type='
         + type
         + '&timer_period=' + findeMap[fined]
         + '&time_from=' + date1.getTime()
@@ -100,7 +100,6 @@ $(function(){
             y2 : 50
         },
         yAxis: {
-            max:20,
             type: 'value',
             axisLabel: {
                 formatter: '{value} 次'
