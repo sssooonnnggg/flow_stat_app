@@ -106,3 +106,14 @@ function getDates(date)
         //data.push(Math.random() * 5 + 8);
     }
 };
+
+function getDataFromBackEnd(type, fn)
+{
+    var fined = $('#select-fined').val();
+    $.getJSON('http://127.0.0.1:3000/do?type='
+        + type
+        + '&timer_period=' + findeMap[fined]
+        + '&time_from=' + date1.getTime()
+        + '&time_end=' + date2.getTime()
+        + '&callback=?', fn);
+}

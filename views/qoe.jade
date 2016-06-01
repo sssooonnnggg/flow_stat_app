@@ -35,6 +35,21 @@ html(lang='zh-CN')
               span.input-group-addon.search-param-label
                 | 结束日期
               input.form-control#endDate.date-input(type='text', value='2015-05-27 00:00')
-      
+    .container-fluid#tableContainer
+      table.table.table-hover.table-bordered#qoe-table
+        thead
+          tr
+            th 时间
+            th 用户账号
+            th 源IP
+            th 源端口
+            th 目的IP
+            th 目的端口
+            th 停顿次数
+            th 视频网站
+            th 当前状态
+        tbody#qoe-body
     include footer.jade
+    script(src='http://cdn.bootcss.com/jquery-dateFormat/1.0/jquery.dateFormat.min.js')
+    script(src='js/common.js')
     script(src='js/qoe.js')

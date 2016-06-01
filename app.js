@@ -133,7 +133,7 @@ app.get('/qoe', restrict, function(req, res){
 });
 
 // 获取随机数据
-function getRandomData(data, fined, start_time, end_time)
+function getVideoRandomData(data, fined, start_time, end_time)
 {
     var interval = 0;
     var distance = end_time - start_time;
@@ -148,12 +148,36 @@ function getRandomData(data, fined, start_time, end_time)
     for (var i = 0; i <= times; i++) {
         var now = start_time + interval * i;
         data[now] = {};
-        data[now]['success-rate'] = Math.random() * 5 + 8;
-        data[now]['buffer-delay'] = Math.random() * 5 + 8;
-        data[now]['break-rate'] = Math.random() * 5 + 8;
-        data[now]['break-time'] = Math.random() * 5 + 8;
-        data[now]['break-percent'] = Math.random() * 5 + 8;
-        data[now]['download-speed'] = Math.random() * 5 + 8;
+        data[now]['init_state'] = Math.random() * 100;
+        //data[now]['buffer-delay'] = Math.random() * 5 + 8;
+        //data[now]['break-rate'] = Math.random() * 5 + 8;
+        //data[now]['break-time'] = Math.random() * 5 + 8;
+        //data[now]['break-percent'] = Math.random() * 5 + 8;
+        data[now]['download_speed'] = Math.random() * 20;
+    }
+};
+
+function getHttpRandomData(data, fined, start_time, end_time)
+{
+    var interval = 0;
+    var distance = end_time - start_time;
+    if (fined == 'hour') {
+        interval = 3600 * 1000;     
+    } else if (fined == 'day') {
+        interval = 3600 * 1000 * 24; 
+    } else if (fined == 'month') {
+        interval = 3600 * 1000 * 24 * 30; 
+    };
+    var times = (end_time - start_time) / interval;
+    for (var i = 0; i <= times; i++) {
+        var now = start_time + interval * i;
+        data[now] = {};
+        data[now]['get_state'] = Math.random() * 100;
+        data[now]['resp_delay'] = Math.random() * 1000;
+        //data[now]['break-rate'] = Math.random() * 5 + 8;
+        //data[now]['break-time'] = Math.random() * 5 + 8;
+        //data[now]['break-percent'] = Math.random() * 5 + 8;
+        data[now]['download_speed'] = Math.random() * 20;
     }
 };
 
@@ -163,7 +187,9 @@ app.get('/do', restrict, function(req, res){
   var end_time = parseInt(req.query.time_end);
   var fined = req.query.timer_period;
   var retJson = {retcode:0, data:{}};
-  getRandomData(retJson.data, fined, start_time, end_time);
+
+  var type = req.query.type;
+  type == 'queryvideo' ? getVideoRandomData(retJson.data, fined, start_time, end_time) : getHttpRandomData(retJson.data, fined, start_time, end_time);
   console.log(retJson);
   res.jsonp(retJson);
 });
