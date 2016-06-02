@@ -52,6 +52,8 @@ function getNetworkData() {
 
 $(function(){
 
+    syncSearchParam();
+
     // 指定图表的配置项和数据
     option = {
         tooltip: {

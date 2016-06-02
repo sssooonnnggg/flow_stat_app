@@ -4,18 +4,15 @@ var formatMap = {
         minView:'day',
         language:  'zh-CN',
         autoclose: 1,
-        minView: 'day',
     },
     '天' : {
         format:'yyyy-mm-dd',
         minView:'month',
         language:  'zh-CN',
         autoclose: 1,
-        minView: 'month',
     },
     '月' : {
         format:'yyyy-mm',
-        minView:'year',
         language:  'zh-CN',
         autoclose: 1,
         minView: 'year',
@@ -35,7 +32,6 @@ var date2 = new Date(2016, 5, 27);
 function initDateTimePicker() {
     var defaultOption = {
         format:'yyyy-mm-dd hh:00',
-        minView:'day',
         language:  'zh-CN',
         autoclose: 1,
         minView: 'day',
@@ -116,4 +112,37 @@ function getDataFromBackEnd(type, fn)
         + '&time_from=' + date1.getTime()
         + '&time_end=' + date2.getTime()
         + '&callback=?', fn);
+}
+
+// 获取 url 参数
+function getUrlParamValue(key) {
+    var searchInfo = window.location.search;
+    var arr = searchInfo.split('&');
+    //console.log(arr);
+    for (var str in arr) {
+        var subStr = arr[str].split('=');
+        //console.log(subStr);
+        if(subStr[0] == key) {
+            return subStr[1];
+        }
+    }
+}
+
+// 同步搜索参数
+function syncSearchParam() {
+
+    //console.log(window.location.search);
+
+    // 设置日期
+    var time_from = getUrlParamValue('time_from');
+    var time_end = getUrlParamValue('time_end');
+    var fined = decodeURI(getUrlParamValue('time_period'));
+    //console.log(time_from, time_end, fined);
+
+    if (time_from != undefined && time_from != '') {
+        date1 = new Date(parseInt(time_from));
+        date2 = new Date(parseInt(time_end));
+        $('#select-fined').val(fined);
+    }
+
 }
