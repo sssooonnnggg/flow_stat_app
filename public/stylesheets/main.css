@@ -30,7 +30,7 @@ body {
   height:110px;
   background-color: #fff;
   border: 0px solid #ddd;
-  border-left-width: 6px;
+  border-left-width: 0px;
   border-left-color: #4cc3a5;
   border-top-width:1px;
   padding: 10px;

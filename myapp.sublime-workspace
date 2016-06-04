@@ -87,15 +87,15 @@
 			"file": "public/js/main.js",
 			"settings":
 			{
-				"buffer_size": 7209,
+				"buffer_size": 7682,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "public/stylesheets/main.css",
+			"file": "views/index.jade",
 			"settings":
 			{
-				"buffer_size": 1103,
+				"buffer_size": 5426,
 				"line_ending": "Windows"
 			}
 		}
@@ -160,6 +160,7 @@
 	],
 	"file_history":
 	[
+		"/F/Projects/Node/myapp/public/stylesheets/main.css",
 		"/F/Projects/Node/myapp/views/qoe.jade",
 		"/F/Projects/Node/myapp/public/stylesheets/qoe.css",
 		"/F/Projects/Node/myapp/public/js/qoe.js",
@@ -182,7 +183,6 @@
 		"/F/Projects/Node/myapp/public/stylesheets/network.css",
 		"/F/Projects/Node/deepshark/dsui/README.md",
 		"/F/Projects/Node/myapp_old_version/public/js/video.js",
-		"/F/Projects/Node/myapp/public/stylesheets/main.css",
 		"/F/Projects/Node/myapp/views/header.jade",
 		"/F/Projects/Node/myapp/views/login.jade",
 		"/F/Projects/Node/myapp/public/stylesheets/index.css",
@@ -344,7 +344,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -353,15 +353,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 7209,
+						"buffer_size": 7682,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2856,
-								2856
+								4201,
+								4201
 							]
 						],
 						"settings":
@@ -371,32 +371,32 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 2109.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "public/stylesheets/main.css",
+					"file": "views/index.jade",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1103,
+						"buffer_size": 5426,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								590,
-								596
+								12,
+								12
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/CSS/CSS.sublime-syntax",
+							"syntax": "Packages/Jade/Syntaxes/Jade.tmLanguage",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
@@ -404,7 +404,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 0,
 					"type": "text"
 				}
 			]

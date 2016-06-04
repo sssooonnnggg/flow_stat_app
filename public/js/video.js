@@ -45,7 +45,7 @@ function getVideoData() {
         curKqiChart.setOption(option);
 
         gaugeOption.series[0].data[0].name = kqiCharts[divId].desc;
-        gaugeOption.series[0].data[0].value = kqiCharts[divId].value;
+        gaugeOption.series[0].data[0].value = getAverageNumber(kqiCharts[divId].data);
         gaugeOption.series[0].detail.formatter = kqiCharts[divId].formatter;
         gaugeChart.setOption(gaugeOption);
     });
@@ -105,7 +105,6 @@ $(function(){
 
     var constFormatter = ["{value} %", "{value} ms", "{value} %", "{value} 次", "{value} %", "{value} KB"];
     var desc = ['视频流媒体初始播放成功率', '视频流媒体初始缓冲延时', '视频流媒体播放停顿率', '视频流媒体停顿频次', '视频流媒体停顿占比', '视频流媒体下载速度'];
-    var value = [95, 2259, 50, 39, 5, 32000];
 
     // 初始化一些描述信息
     for (var i = 1; i < 7; i++) {
@@ -117,7 +116,6 @@ $(function(){
         };
         kqiCharts[chartId].formatter = constFormatter[i - 1];
         kqiCharts[chartId].desc = desc[i - 1];
-        kqiCharts[chartId].value = value[i - 1];
     }
 
     initDateTimePicker();
@@ -250,8 +248,8 @@ $(function(){
         getVideoData();
     })
 
-    $('.tab-btn').click(function(){
-        var activeTabs = $('.active');
+    $('#video-tab .tab-btn').click(function(){
+        var activeTabs = $('#video-tab .active');
         activeTabs.removeClass('active');
         activeTabs.addClass('inactive');
         $(this).removeClass('inactive');
@@ -263,7 +261,7 @@ $(function(){
         curKqiChart.setOption(option);
 
         gaugeOption.series[0].data[0].name = kqiCharts[divId].desc;
-        gaugeOption.series[0].data[0].value = kqiCharts[divId].value;
+        gaugeOption.series[0].data[0].value = getAverageNumber(kqiCharts[divId].data);
         gaugeOption.series[0].detail.formatter = kqiCharts[divId].formatter;
         gaugeChart.setOption(gaugeOption);
     })

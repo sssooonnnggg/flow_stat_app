@@ -44,7 +44,7 @@ function getNetworkData() {
         curChart.setOption(option);
 
         gaugeOption.series[0].data[0].name = kqiCharts[divId].desc;
-        gaugeOption.series[0].data[0].value = kqiCharts[divId].value;
+        gaugeOption.series[0].data[0].value = getAverageNumber(kqiCharts[divId].data);
         gaugeOption.series[0].detail.formatter = kqiCharts[divId].formatter;
         gaugeChart.setOption(gaugeOption);
     });
@@ -104,7 +104,6 @@ $(function(){
 
     var constFormatter = ["{value} %", "{value} ms", "{value} %", "{value} ms", "{value} KB"];
     var desc = ['页面响应成功率', '页面响应延时', '页面显示成功率', '页面显示延时', '页面下载速率'];
-    var value = [95, 2259, 50, 39, 5, 32000];
 
     for (var i = 1; i < 6; i++) {
         var chartId = "network-tab-" + i;
@@ -115,7 +114,6 @@ $(function(){
         };
         kqiCharts[chartId].formatter = constFormatter[i - 1];
         kqiCharts[chartId].desc = desc[i - 1];
-        kqiCharts[chartId].value = value[i - 1];
     }
 
     initDateTimePicker();
@@ -248,8 +246,8 @@ $(function(){
         getNetworkData();
     })
 
-    $('.tab-btn').click(function(){
-        var activeTabs = $('.active');
+    $('#network-tab .tab-btn').click(function(){
+        var activeTabs = $('#network-tab .active');
         activeTabs.removeClass('active');
         activeTabs.addClass('inactive');
         $(this).removeClass('inactive');
@@ -261,7 +259,7 @@ $(function(){
         curChart.setOption(option);
 
         gaugeOption.series[0].data[0].name = kqiCharts[divId].desc;
-        gaugeOption.series[0].data[0].value = kqiCharts[divId].value;
+        gaugeOption.series[0].data[0].value = getAverageNumber(kqiCharts[divId].data);
         gaugeOption.series[0].detail.formatter = kqiCharts[divId].formatter;
         gaugeChart.setOption(gaugeOption);
     })

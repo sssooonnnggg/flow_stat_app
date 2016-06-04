@@ -21,13 +21,13 @@ body {
     border-style:solid;
     border-color:#e7eaec;
     border-bottom-width: 1px;
-    float:left;
     padding-left:0px;
     width:100%;
 }
 
 .tab-bar > ul {
     padding-left:20px;
+    margin-bottom:0px;
 }
 
 .tab-btn {
@@ -35,8 +35,7 @@ body {
     border-color:transparent;
     border-style: solid;
     height: 25px;
-    display: block;
-    float:left;
+    display: inline-block;
     cursor:pointer;
     padding:6px 12px;
     font-size:14px;

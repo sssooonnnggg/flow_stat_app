@@ -146,3 +146,12 @@ function syncSearchParam() {
     }
 
 }
+
+// 取数组平均值
+function getAverageNumber(arr) {
+    var result = 0;
+    for (var i = 0; i < arr.length; ++i) {
+        result += arr[i];
+    }
+    return (result / arr.length).toFixed(2);
+}

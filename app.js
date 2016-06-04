@@ -182,7 +182,7 @@ function getHttpRandomData(data, fined, start_time, end_time)
 };
 
 // 测试
-app.get('/do', restrict, function(req, res){
+app.get('/do', function(req, res){
   var start_time = parseInt(req.query.time_from);
   var end_time = parseInt(req.query.time_end);
   var fined = req.query.timer_period;

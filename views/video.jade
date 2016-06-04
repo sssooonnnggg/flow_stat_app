@@ -24,7 +24,7 @@ html(lang='zh-CN')
     include searchbar.jade
     .container-fluid
       .frame
-        .tab-bar
+        .tab-bar#video-tab
           ul
             - for (var i = 1; i <= 6; ++i)
               li.tab-btn(class=active_status[i-1], id='video-tab-'+i)=desc[i-1]
