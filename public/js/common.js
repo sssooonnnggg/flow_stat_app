@@ -107,7 +107,7 @@ function getDates(date)
 function getDataFromBackEnd(type, fn)
 {
     var fined = $('#select-fined').val();
-    $.getJSON('http://127.0.0.1:3000/do?type='
+    $.getJSON('https://127.0.0.1:3000/do?type='
         + type
         + '&timer_period=' + findeMap[fined]
         + '&time_from=' + date1.getTime()
