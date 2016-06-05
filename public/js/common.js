@@ -65,7 +65,7 @@ $(function(){
     });
 });
 
-function formateDate(value, index) {
+function formateDate(value) {
     var date = new Date(value);
     var text = date.getFullYear() + '-' + (date.getMonth() + 1);
     var fined = $('#select-fined').val();
@@ -84,6 +84,7 @@ function formateDate(value, index) {
 function getDates(date)
 {
     date.length = 0;
+    formatedDate.length = 0;
     //data.length = 0;
     var fined = $('#select-fined').val();
     var interval = 0;
@@ -99,7 +100,7 @@ function getDates(date)
     for (var i = 0; i <= times; i++) {
         var now = date1.valueOf() + interval * i;
         date.push(now);
-        //data.push(Math.random() * 5 + 8);
+        formatedDate.push(formateDate(now));
     }
 };
 

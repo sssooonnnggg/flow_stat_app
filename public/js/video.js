@@ -1,52 +1,55 @@
-kqiCharts = {};
-curKqiChart = echarts.init(document.getElementById('video-container'));
+videoChart = {};
+curVideoChart = echarts.init(document.getElementById('video-container'));
 gaugeChart = echarts.init(document.getElementById('gauge-container'));
 mapChart = echarts.init(document.getElementById('map-container'));
 barChart = echarts.init(document.getElementById('bar-container'));
 
 date = [];
+formatedDate = [];
 data = [];
 
 function getVideoData() {
     getDates(date);
+    curVideoChart.showLoading();
     getDataFromBackEnd('queryvideo', function(serverData) {
         var videoData = serverData['data'];
-        kqiCharts['video-tab-1'].data.length = 0;
-        kqiCharts['video-tab-2'].data.length = 0;
-        kqiCharts['video-tab-3'].data.length = 0;
-        kqiCharts['video-tab-4'].data.length = 0;
-        kqiCharts['video-tab-5'].data.length = 0;
-        kqiCharts['video-tab-6'].data.length = 0;
+        videoChart['video-tab-1'].data.length = 0;
+        videoChart['video-tab-2'].data.length = 0;
+        videoChart['video-tab-3'].data.length = 0;
+        videoChart['video-tab-4'].data.length = 0;
+        videoChart['video-tab-5'].data.length = 0;
+        videoChart['video-tab-6'].data.length = 0;
         for (var i = 0; i < date.length; ++i) {
             if (date[i] in videoData)
             {
                 var itemData = videoData[date[i]];
-                kqiCharts['video-tab-1'].data.push(itemData['init_state']);
+                videoChart['video-tab-1'].data.push(itemData['init_state']);
                 //data['video-tab-2'].data.push(itemData['buffer-delay']);
                 //data['video-tab-3'].data.push(itemData['break-rate']);
                 //data['video-tab-4'].data.push(itemData['break-time']);
                 //data['video-tab-5'].data.push(itemData['break-percent']);
-                kqiCharts['video-tab-6'].data.push(itemData['download_speed']);
+                videoChart['video-tab-6'].data.push(itemData['download_speed']);
             }
             else
             {
-                kqiCharts['video-tab-1'].data.push(0);
-                kqiCharts['video-tab-2'].data.push(0);
-                kqiCharts['video-tab-3'].data.push(0);
-                kqiCharts['video-tab-4'].data.push(0);
-                kqiCharts['video-tab-5'].data.push(0);
-                kqiCharts['video-tab-6'].data.push(0);
+                videoChart['video-tab-1'].data.push(0);
+                videoChart['video-tab-2'].data.push(0);
+                videoChart['video-tab-3'].data.push(0);
+                videoChart['video-tab-4'].data.push(0);
+                videoChart['video-tab-5'].data.push(0);
+                videoChart['video-tab-6'].data.push(0);
             }
         }
         var divId = $('.active').attr("id");
-        option.xAxis.data = date;
-        option.series[0].data = kqiCharts[divId].data;
-        option.yAxis.axisLabel.formatter = kqiCharts[divId].formatter;
-        curKqiChart.setOption(option);
+        option.xAxis.data = formatedDate;
+        option.series[0].data = videoChart[divId].data;
+        option.yAxis.axisLabel.formatter = videoChart[divId].formatter;
+        curVideoChart.hideLoading();
+        curVideoChart.setOption(option);
 
-        gaugeOption.series[0].data[0].name = kqiCharts[divId].desc;
-        gaugeOption.series[0].data[0].value = getAverageNumber(kqiCharts[divId].data);
-        gaugeOption.series[0].detail.formatter = kqiCharts[divId].formatter;
+        gaugeOption.series[0].data[0].name = videoChart[divId].desc;
+        gaugeOption.series[0].data[0].value = getAverageNumber(videoChart[divId].data);
+        gaugeOption.series[0].detail.formatter = videoChart[divId].formatter;
         gaugeChart.setOption(gaugeOption);
     });
 }
@@ -59,7 +62,7 @@ $(function(){
     option = {
         tooltip: {
             trigger: 'axis',
-            formatter:'{c}',
+            formatter:'{c}<br />{b}',
         },
         toolbox: {
             show: false,
@@ -78,10 +81,7 @@ $(function(){
         xAxis:  {
             type: 'category',
             boundaryGap: false,
-            data : date,
-            axisLabel: {
-                formatter:formateDate,
-            }
+            data : date
         },
         grid:   {
             x : 70,
@@ -109,13 +109,13 @@ $(function(){
     // 初始化一些描述信息
     for (var i = 1; i < 7; i++) {
         var chartId = "video-tab-" + i;
-        kqiCharts[chartId] = {
+        videoChart[chartId] = {
             date:[],
             data:[],
             formatter:"",
         };
-        kqiCharts[chartId].formatter = constFormatter[i - 1];
-        kqiCharts[chartId].desc = desc[i - 1];
+        videoChart[chartId].formatter = constFormatter[i - 1];
+        videoChart[chartId].desc = desc[i - 1];
     }
 
     initDateTimePicker();
@@ -255,14 +255,14 @@ $(function(){
         $(this).removeClass('inactive');
         $(this).addClass('active');
         var divId = $(this).attr("id");
-        option.xAxis.data = date;
-        option.series[0].data = kqiCharts[divId].data;
-        option.yAxis.axisLabel.formatter = kqiCharts[divId].formatter;
-        curKqiChart.setOption(option);
+        option.xAxis.data = formatedDate;
+        option.series[0].data = videoChart[divId].data;
+        option.yAxis.axisLabel.formatter = videoChart[divId].formatter;
+        curVideoChart.setOption(option);
 
-        gaugeOption.series[0].data[0].name = kqiCharts[divId].desc;
-        gaugeOption.series[0].data[0].value = getAverageNumber(kqiCharts[divId].data);
-        gaugeOption.series[0].detail.formatter = kqiCharts[divId].formatter;
+        gaugeOption.series[0].data[0].name = videoChart[divId].desc;
+        gaugeOption.series[0].data[0].value = getAverageNumber(videoChart[divId].data);
+        gaugeOption.series[0].detail.formatter = videoChart[divId].formatter;
         gaugeChart.setOption(gaugeOption);
     })
 

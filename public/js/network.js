@@ -1,51 +1,54 @@
-kqiCharts = {};
-curChart = echarts.init(document.getElementById('network-container'));
+networkChart = {};
+netChart = echarts.init(document.getElementById('network-container'));
 gaugeChart = echarts.init(document.getElementById('gauge-container'));
 mapChart = echarts.init(document.getElementById('map-container'));
 barChart = echarts.init(document.getElementById('bar-container'));
 
 date = [];
+formatedDate = [];
 data = [];
 
 function getNetworkData() {
+    netChart.showLoading();
     getDates(date);
     getDataFromBackEnd('queryhttp', function(serverData) {
         var videoData = serverData['data'];
-        kqiCharts['network-tab-1'].data.length = 0;
-        kqiCharts['network-tab-2'].data.length = 0;
-        kqiCharts['network-tab-3'].data.length = 0;
-        kqiCharts['network-tab-4'].data.length = 0;
-        kqiCharts['network-tab-5'].data.length = 0;
+        networkChart['network-tab-1'].data.length = 0;
+        networkChart['network-tab-2'].data.length = 0;
+        networkChart['network-tab-3'].data.length = 0;
+        networkChart['network-tab-4'].data.length = 0;
+        networkChart['network-tab-5'].data.length = 0;
         for (var i = 0; i < date.length; ++i) {
             if (date[i] in videoData)
             {
                 var itemData = videoData[date[i]];
-                kqiCharts['network-tab-1'].data.push(itemData['get_state']);
-                kqiCharts['network-tab-2'].data.push(itemData['resp_delay']);
+                networkChart['network-tab-1'].data.push(itemData['get_state']);
+                networkChart['network-tab-2'].data.push(itemData['resp_delay']);
                 //data['network-tab-3'].data.push(itemData['break-rate']);
                 //data['network-tab-4'].data.push(itemData['break-time']);
-                kqiCharts['network-tab-5'].data.push(itemData['download_speed']);
+                networkChart['network-tab-5'].data.push(itemData['download_speed']);
             }
             else
             {
-                kqiCharts['network-tab-1'].data.push(0);
-                kqiCharts['network-tab-2'].data.push(0);
-                kqiCharts['network-tab-3'].data.push(0);
-                kqiCharts['network-tab-4'].data.push(0);
-                kqiCharts['network-tab-5'].data.push(0);
+                networkChart['network-tab-1'].data.push(0);
+                networkChart['network-tab-2'].data.push(0);
+                networkChart['network-tab-3'].data.push(0);
+                networkChart['network-tab-4'].data.push(0);
+                networkChart['network-tab-5'].data.push(0);
             }
 
         };
 
         var divId = $('.active').attr("id");
-        option.xAxis.data = date;
-        option.series[0].data = kqiCharts[divId].data;
-        option.yAxis.axisLabel.formatter = kqiCharts[divId].formatter;
-        curChart.setOption(option);
+        option.xAxis.data = formatedDate;
+        option.series[0].data = networkChart[divId].data;
+        option.yAxis.axisLabel.formatter = networkChart[divId].formatter;
+        netChart.hideLoading();
+        netChart.setOption(option);
 
-        gaugeOption.series[0].data[0].name = kqiCharts[divId].desc;
-        gaugeOption.series[0].data[0].value = getAverageNumber(kqiCharts[divId].data);
-        gaugeOption.series[0].detail.formatter = kqiCharts[divId].formatter;
+        gaugeOption.series[0].data[0].name = networkChart[divId].desc;
+        gaugeOption.series[0].data[0].value = getAverageNumber(networkChart[divId].data);
+        gaugeOption.series[0].detail.formatter = networkChart[divId].formatter;
         gaugeChart.setOption(gaugeOption);
     });
 }
@@ -58,7 +61,7 @@ $(function(){
     option = {
         tooltip: {
             trigger: 'axis',
-            formatter:'{b}<br />{c}',
+            formatter:'{c}<br />{b}',
         },
         toolbox: {
             show: false,
@@ -107,13 +110,13 @@ $(function(){
 
     for (var i = 1; i < 6; i++) {
         var chartId = "network-tab-" + i;
-        kqiCharts[chartId] = {
+        networkChart[chartId] = {
             date:[],
             data:[],
             formatter:"",
         };
-        kqiCharts[chartId].formatter = constFormatter[i - 1];
-        kqiCharts[chartId].desc = desc[i - 1];
+        networkChart[chartId].formatter = constFormatter[i - 1];
+        networkChart[chartId].desc = desc[i - 1];
     }
 
     initDateTimePicker();
@@ -253,14 +256,14 @@ $(function(){
         $(this).removeClass('inactive');
         $(this).addClass('active');
         var divId = $(this).attr("id");
-        option.xAxis.data = date;
-        option.series[0].data = kqiCharts[divId].data;
-        option.yAxis.axisLabel.formatter = kqiCharts[divId].formatter;
-        curChart.setOption(option);
+        option.xAxis.data = formatedDate;
+        option.series[0].data = networkChart[divId].data;
+        option.yAxis.axisLabel.formatter = networkChart[divId].formatter;
+        netChart.setOption(option);
 
-        gaugeOption.series[0].data[0].name = kqiCharts[divId].desc;
-        gaugeOption.series[0].data[0].value = getAverageNumber(kqiCharts[divId].data);
-        gaugeOption.series[0].detail.formatter = kqiCharts[divId].formatter;
+        gaugeOption.series[0].data[0].name = networkChart[divId].desc;
+        gaugeOption.series[0].data[0].value = getAverageNumber(networkChart[divId].data);
+        gaugeOption.series[0].detail.formatter = networkChart[divId].formatter;
         gaugeChart.setOption(gaugeOption);
     })
 

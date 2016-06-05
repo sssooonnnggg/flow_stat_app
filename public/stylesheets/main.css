@@ -34,14 +34,28 @@ body {
   border-left-color: #4cc3a5;
   border-top-width:1px;
   padding: 10px;
+  padding-left:20px;
   padding-top:15px;
 }
 
 .score-chart {
   float:left;
-  width:100px;
-  height:90px;
-  margin-top:-5px;
+  width:80px;
+  height:80px;
+  margin:0px;
+  padding:0px;
+  position:relative;
+}
+
+.score-chart strong {
+  position: absolute;
+  top: 20px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  line-height: 40px;
+  font-size: 30px;
+  color:#aaa;
 }
 
 .score-start {
@@ -49,7 +63,7 @@ body {
   width:100px;
   height:80px;
   line-height: 30px;
-  text-align: center;
+  text-align: right;
   font-style: italic;
 }
 
@@ -68,5 +82,5 @@ body {
 }
 
 #web-score {
-  margin-top: -20px;
+  margin-top: -15px;
 }
