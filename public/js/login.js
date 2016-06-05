@@ -33,7 +33,14 @@ $(function(){
 
 	$("input").keyup(function(){
 	   $(".login-failed").hide();
-	})
+	});
+
+	$('input').keypress(function (e) {
+		if (e.which == 13) {
+			$(".btn-lg").click();
+			return false;
+		}
+	});
 
 })
 

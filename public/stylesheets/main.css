@@ -1,86 +1,78 @@
 body {
-  font-family: "Helvetica Neue", "Helvetica", "Microsoft Yahei", "Hiragino Sans GB", "WenQuanYi Micro Hei", "sans-serif";
-  height:100%;
-  background-color: #f2f2f2;
+    font-family: "Helvetica Neue", "Helvetica", "Microsoft Yahei", "Hiragino Sans GB", "WenQuanYi Micro Hei", "sans-serif";
+    height: 100%;
+    background-color: #f2f2f2;
+}
+
+.overview-left, .overview-right {
+    /*height:360px;*/
+    width:50%;
+    float:left;
+    padding-bottom: 5px;
+    vertical-align: top;
+    height:100%;
 }
 
 .overview-left {
-    /*height:360px;*/
-    width:49%;
-    float:left;
-    margin-bottom:20px;
-}
-
-.overview-right {
-    /*height:360px;*/
-    width:49%;
-    float:right;
-    margin-bottom:20px;
+    padding-right:5px;
 }
 
 .radar {
-  width:100%;
-  height:320px;
-  margin-top:40px;
-  cursor:pointer;
+    width: 100%;
+    height: 320px;
+    margin-top: 40px;
+    cursor: pointer;
 }
 
 .score {
-  width:100%;
-  height:110px;
-  background-color: #fff;
-  border: 0px solid #ddd;
-  border-left-width: 0px;
-  border-left-color: #4cc3a5;
-  border-top-width:1px;
-  padding: 10px;
-  padding-left:20px;
-  padding-top:15px;
+    width: 100%;
+    background-color: #fff;
+    border: 0px solid #ddd;
+    border-left-width: 0px;
+    border-left-color: #4cc3a5;
+    border-top-width: 1px;
+    padding: 10px;
+    padding-left: 20px;
+    padding-top: 15px;
+    min-height:115px;
 }
 
 .score-chart {
-  float:left;
-  width:80px;
-  height:80px;
-  margin:0px;
-  padding:0px;
-  position:relative;
+    float: left;
+    width: 80px;
+    height: 80px;
+    margin: 0px;
+    padding: 0px;
+    position: relative;
 }
 
 .score-chart strong {
-  position: absolute;
-  top: 20px;
-  left: 0;
-  width: 100%;
-  text-align: center;
-  line-height: 40px;
-  font-size: 30px;
-  color:#aaa;
+    position: absolute;
+    top: 20px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    line-height: 40px;
+    font-size: 30px;
+    color: #aaa;
 }
 
 .score-start {
-  float:left;
-  width:100px;
-  height:80px;
-  line-height: 30px;
-  text-align: right;
-  font-style: italic;
+    vertical-align: top;
+    float: left;
+    width: 100px;
+    line-height: 25px;
+    text-align: center;
+    font-style: italic;
 }
 
 .score-part {
-  margin-left:200px;
-  height:25px;
-  line-height: 25px;
-  text-align: left;
-  color:#888;
-  font-style: italic;
-}
-
-#web-score-container {
-  padding-top:30px;
-  padding-bottom:0px;
-}
-
-#web-score {
-  margin-top: -15px;
+    vertical-align: top;
+    margin-left: 180px;
+    line-height: 25px;
+    text-align: left;
+    color: #888;
+    font-style: italic;
+    word-break: keep-all;
+    width: auto;
 }

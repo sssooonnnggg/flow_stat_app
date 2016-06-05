@@ -17,6 +17,7 @@ $(function () {
     }
 
     function getVideoData() {
+        video.showLoading();
         getDataFromBackEnd('queryvideo', function (serverData) {
             var videoData = serverData['data'];
             var radarData = [];
@@ -33,6 +34,7 @@ $(function () {
             score = Math.floor(score);
             video_option.series[0].data[0].value = radarData;
             video.setOption(video_option);
+            video.hideLoading();
 
             $('#video-score').circleProgress({
                 value: score / 100,
@@ -47,6 +49,7 @@ $(function () {
     }
 
     function getNetworkData() {
+        web.showLoading();
         getDataFromBackEnd('queryhttp', function (serverData) {
             var networkData = serverData['data'];
             var radarData = [];
@@ -62,6 +65,7 @@ $(function () {
             score = Math.floor(score);
             web_option.series[0].data[0].value = radarData;
             web.setOption(web_option);
+            web.hideLoading();
 
             $('#web-score').circleProgress({
                 value: score / 100,
