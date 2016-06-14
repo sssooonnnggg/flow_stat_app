@@ -16,24 +16,24 @@ html(lang='zh-CN')
                     .tab-bar
                         ul
                             li.tab-btn.active#video-tab 视频流媒体体验趋势总览
-                    .radar#video
                     .score.clearfix
                         .score-chart#video-score
                             strong
                         .score-start 体验得分 =
                         .score-part
                             p ( 视频流媒体初始播放成功率 * 0.167 + 视频流媒体初始缓冲延时 * 0.167 + 视频流媒体播放停顿率 * 0.167 + 视频流媒体停顿频次 * 0.167 + 视频流媒体停顿占比   * 0.167 + 视频流媒体下载速度 * 0.167 ) * 100
+                    .radar#video
             .overview-right
                 .frame
                     .tab-bar
                         ul
                             li.tab-btn.active#network-tab WEB 网站体验趋势总览
-                    .radar#network
                     .score.clearfix
                         .score-chart#web-score
                             strong
                         .score-start 体验得分 =
                         .score-part ( 页面响应成功率 * 0.2 + 页面响应延时 * 0.2 + 页面显示成功率 * 0.2 + 页面显示延时 * 0.2 + 页面下载速率 * 0.2 ) * 100
+                    .radar#network
             .overview-left
                 .frame
                     .tab-bar
