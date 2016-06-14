@@ -1,5 +1,10 @@
 $(function(){
 
+	// 检查是否为 chrome ，如果不是 chrome， 跳转
+	if (!isChrome()) {
+		window.location.href = "/wrongbrowser";
+	}
+
 	$(".btn-lg").click(function(event) {
 
 		var username = $("#username").val();

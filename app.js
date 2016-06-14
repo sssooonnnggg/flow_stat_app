@@ -80,6 +80,10 @@ app.post('/login', function (req, res) {
     });
 });
 
+app.get('/wrongbrowser', function (req, res) {
+    res.render('wrongbrowser');
+});
+
 var roleMap = {
     'admin': '管理员',
     'user': '普通用户'

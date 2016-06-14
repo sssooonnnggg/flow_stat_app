@@ -3,28 +3,28 @@ var formatMap = {
         format:'yyyy-mm-dd hh:00',
         minView:'day',
         language:  'zh-CN',
-        autoclose: 1,
+        autoclose: 1
     },
     '天' : {
         format:'yyyy-mm-dd',
         minView:'month',
         language:  'zh-CN',
-        autoclose: 1,
+        autoclose: 1
     },
     '月' : {
         format:'yyyy-mm',
         language:  'zh-CN',
         autoclose: 1,
         minView: 'year',
-        startView: 'year',
-    },
-}
+        startView: 'year'
+    }
+};
 
 var findeMap = {
     '小时' : 'hour',
     '天' : 'day',
     '月' : 'month'
-}
+};
 
 var date1 = new Date(2016, 5, 20);
 var date2 = new Date(2016, 5, 27);
@@ -34,34 +34,36 @@ function initDateTimePicker() {
         format:'yyyy-mm-dd hh:00',
         language:  'zh-CN',
         autoclose: 1,
-        minView: 'day',
+        minView: 'day'
     };
-    $('#startDate').datetimepicker(defaultOption);
-    $('#endDate').datetimepicker(defaultOption);
+    var startDate = $('#startDate');
+    var endDate = $('#endDate');
+    startDate.datetimepicker(defaultOption);
+    endDate.datetimepicker(defaultOption);
 
-    $('#startDate').datetimepicker().on('changeDate', function(ev){
+    startDate.datetimepicker().on('changeDate', function(ev){
         date1 = ev.date;
     });
 
-
-    $('#endDate').datetimepicker().on('changeDate', function(ev){
+    endDate.datetimepicker().on('changeDate', function(ev){
         date2 = ev.date;
     });
-
-    $('#startDate').datetimepicker('update', date1);
-    $('#endDate').datetimepicker('update', date2);
-};
+    startDate.datetimepicker('update', date1);
+    endDate.datetimepicker('update', date2);
+}
 
 $(function(){
 
     $('#select-fined').change(function() {
         var checkValue=$(this).val();
-        $('#startDate').datetimepicker('remove');
-        $('#endDate').datetimepicker('remove');
-        $('#startDate').datetimepicker(formatMap[checkValue]);
-        $('#endDate').datetimepicker(formatMap[checkValue]);
-        $('#startDate').datetimepicker('update', date1);
-        $('#endDate').datetimepicker('update', date2);
+        var startDate = $('#startDate');
+        var endDate = $('#endDate');
+        startDate.datetimepicker('remove');
+        endDate.datetimepicker('remove');
+        startDate.datetimepicker(formatMap[checkValue]);
+        endDate.datetimepicker(formatMap[checkValue]);
+        startDate.datetimepicker('update', date1);
+        endDate.datetimepicker('update', date2);
     });
 });
 
@@ -76,9 +78,9 @@ function formateDate(value) {
         text = text + '-' + date.getDate();
     } else if (fined == '月') {
 
-    };
+    }
     return text;
-};
+}
 
 // 获取时间数组
 function getDates(date)
@@ -95,19 +97,19 @@ function getDates(date)
         interval = 3600 * 1000 * 24; 
     } else if (fined == '月') {
         interval = 3600 * 1000 * 24 * 30; 
-    };
+    }
     var times = (date2.valueOf() - date1.valueOf()) / interval;
     for (var i = 0; i <= times; i++) {
         var now = date1.valueOf() + interval * i;
         date.push(now);
         formatedDate.push(formateDate(now));
     }
-};
+}
 
 function getDataFromBackEnd(type, fn)
 {
     var fined = $('#select-fined').val();
-    $.getJSON('https://127.0.0.1:3000/do?type='
+    $.getJSON('https://127.0.0.1/do?type='
         + type
         + '&timer_period=' + findeMap[fined]
         + '&time_from=' + date1.getTime()
@@ -155,4 +157,26 @@ function getAverageNumber(arr) {
         result += arr[i];
     }
     return (result / arr.length).toFixed(2);
+}
+
+function isChrome() {
+    var isChromium = window.chrome,
+      winNav = window.navigator,
+      vendorName = winNav.vendor,
+      isOpera = winNav.userAgent.indexOf("OPR") > -1,
+      isIEedge = winNav.userAgent.indexOf("Edge") > -1,
+      isIOSChrome = winNav.userAgent.match("CriOS");
+
+    if(isIOSChrome){
+        // is Google Chrome on IOS
+        return false;
+    } else if(isChromium !== null && isChromium !== undefined && vendorName === "Google Inc." && isOpera == false && isIEedge == false) {
+        // is Google Chrome
+        return true;
+    } else {
+        // not Google Chrome
+        return false;
+    }
+
+    return false;
 }
